@@ -1,6 +1,22 @@
 
 .App {
   text-align: center;
+  /* background-color: #232323; */
+
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.pantalla{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    background-color: #232323;
 }
 
 .App-logo {
