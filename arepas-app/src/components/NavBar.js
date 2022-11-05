@@ -1,9 +1,12 @@
 import React from 'react';
 import {Navbar, Nav } from 'react-bootstrap';
 import './NavBar.css';
+import logo from '../imagenes/arepa.png';
+import Button from 'react-bootstrap/Button';
 
 export const NavigationBar = () => (
     <Navbar className='navbar' >
+    <img src={logo} className="App-logo" alt='lol'/>
     <Navbar.Brand >Arepa-app</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
     <Navbar.Collapse id="basic-navbar-nav">        
@@ -11,8 +14,8 @@ export const NavigationBar = () => (
     <Nav.Item><Nav.Link href="/Menu" >Menu</Nav.Link></Nav.Item>
     </Nav>
       <Nav className="ms-auto">
-        <Nav.Item><Nav.Link href="/Login" >Inicio de sesion</Nav.Link></Nav.Item>
-        <Nav.Item><Nav.Link href="/Register" >Registrate</Nav.Link></Nav.Item>
+      <Nav.Item ><Button variant="outline-success">Registrate</Button></Nav.Item>
+        <Nav.Item ><Button variant="outline-warning">Registrate</Button></Nav.Item>
       </Nav>
     </Navbar.Collapse>        
   </Navbar>
