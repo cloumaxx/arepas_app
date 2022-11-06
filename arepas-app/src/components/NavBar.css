@@ -1,0 +1,9 @@
+.navbar{
+    background-color: #FF731D;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 4vmin;
+    pointer-events: none;
+  }
