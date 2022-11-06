@@ -2,7 +2,7 @@ import React from 'react';
 import {Navbar, Nav } from 'react-bootstrap';
 import './NavBar.css';
 import logo from '../imagenes/arepa.png';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
 export const NavigationBar = () => (
     <Navbar className='navbar' >
@@ -14,8 +14,8 @@ export const NavigationBar = () => (
     <Nav.Item><Nav.Link href="/Menu" >Menu</Nav.Link></Nav.Item>
     </Nav>
       <Nav className="ms-auto">
-      <Nav.Item ><Button variant="outline-success">Registrate</Button></Nav.Item>
-        <Nav.Item ><Button variant="outline-warning">Registrate</Button></Nav.Item>
+      <Nav.Item ><Nav.Link href="/Login">Login</Nav.Link></Nav.Item>
+      <Nav.Item ><Nav.Link href="./Register">Registrate</Nav.Link></Nav.Item>
       </Nav>
     </Navbar.Collapse>        
   </Navbar>
