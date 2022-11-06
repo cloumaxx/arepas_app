@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Sedgwick Ave Display');
+
 .menu{
     background-color: white;
 }
@@ -9,3 +11,8 @@
     bottom: 0;
     background-color: #232323;
 }
+
+.letrica{
+    font-family: 'Sedgwick Ave Display';
+}
+
