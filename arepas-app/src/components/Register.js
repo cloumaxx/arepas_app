@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Col, Container, Row } from 'react-bootstrap';
 import logo from '../imagenes/arepagif.gif';
+import DatePicker from "react-multi-date-picker"
 import './Menu.css'
 
 export const Register = () => (
@@ -35,7 +36,7 @@ export const Register = () => (
               <div className='d-flex justify-content-start text-light letrica'>
                 <Form.Label>primer nombre</Form.Label>
               </div>
-              <Form.Control type="text" placeholder="ingrese su primer nombre" />
+              <Form.Control type="text" placeholder="primer nombre" />
             </Form.Group>
 
             {/* apellido */}
@@ -43,18 +44,27 @@ export const Register = () => (
               <div className='d-flex justify-content-start text-light letrica'>
                 <Form.Label>apellido</Form.Label>
               </div>
-              <Form.Control type="text" placeholder="ingrese su segundo apellido" />
+              <Form.Control type="text" className='text-break' placeholder="segundo apellido" />
             </Form.Group>
           </Row>
 
-          {/* direcion */}
-          <Form.Group className="mb-3" controlId="formBasicAdress">
+          {/* direcion  y fecha*/}
+          <Row>
+          <Form.Group as={Col} className="mb-3" controlId="formBasicAdress">
             <div className='d-flex justify-content-start text-light letrica'>
               <Form.Label>direcion</Form.Label>
             </div>
             <Form.Control type="text" placeholder="ingrese su direcion" />
           </Form.Group>
 
+          <Form.Group as={Col} className="mb-3" controlId="formBasicAdress">
+            <div className='d-flex justify-content-start text-light letrica'>
+              <Form.Label>direcion</Form.Label>
+            </div>
+            <DatePicker className="bg-dark "/>
+          </Form.Group>
+          </Row>
+          
           {/* submit button */}
           <Button variant="primary" type="submit" className='letrica'>
             Submit
@@ -62,7 +72,7 @@ export const Register = () => (
         </Form>
       </Col>
       <Col xs={7}>
-      <img src={logo} className="img-fluid" alt='lol'/>
+        <img src={logo} className="img-fluid" alt='lol' />
       </Col>
     </Row>
   </Container>
