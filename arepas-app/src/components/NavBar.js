@@ -11,7 +11,7 @@ export const NavigationBar = () => (
     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
     <Navbar.Collapse id="basic-navbar-nav">        
     <Nav className='me-auto'>
-    <Nav.Item><Nav.Link href="/Menu" >Menu</Nav.Link></Nav.Item>
+    <Nav.Item><Nav.Link href="/" >Menu</Nav.Link></Nav.Item>
     </Nav>
       <Nav className="ms-auto">
       <Nav.Item ><Nav.Link href="/Login">Login</Nav.Link></Nav.Item>

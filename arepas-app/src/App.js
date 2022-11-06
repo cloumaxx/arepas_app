@@ -12,12 +12,12 @@ import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+      <NavigationBar />
       <React.Fragment>
-        <NavigationBar />
         <Layout>
           <Router>
             <Routes>
-              <Route exact path="/Menu" element={<Menu/>} />
+              <Route exact path="/" element={<Menu/>} />
               <Route path="/Login" element={<Login/>} />
               <Route path="/Register" element={<Register/>} />
             </Routes>
