@@ -4,7 +4,7 @@ import { NavigationBar } from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Menu } from './components/Menu';
-import { Login } from './components/Login';
+import Login  from './components/Login';
 import { Register } from './components/Register';
 import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
