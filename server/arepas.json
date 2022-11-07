@@ -1,13 +1,76 @@
 {
   "arepas": [
+	  {
+"id": 1,
+      "Name": "Arepa con chorizo",
+      "Description": "Deliciosa arepa acompañada de chorizo de su res o pollo",
+      "Price": "2500",
+      "Image": "arepas-app/src/imagenes/Arepa-Con-Chorizo.jpg"
+    },
     {
-      "id": 1,
-      "Name": "arepa",
-      "Description": "bien rica",
-      "Price": "1000",
-      "Image": "xd"
+      "id": 2,
+      "Name": "Arepa con carne",
+      "Description": "Deliciosa arepa acompañada con carne de res",
+      "Price": "2500",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Carne.jpg"
+    },
+    {
+      "id": 3,
+      "Name": "Arepa con todo",
+      "Description": "Deliciosa arepa acompañada con carne, pollo, chocharrón, huevo y salsas de la casa",
+      "Price": "7000",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Con-Todo.jpg"
+    },
+    {
+      "id": 4,
+      "Name": "Arepa con queso cuajada",
+      "Description": "Deliciosa arepa acompañada con un queso cuajada",
+      "Price": "3000",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso-Cuajada.jpg"
+    },
+    {
+      "id": 5,
+      "Name": "Arepa con queso ",
+      "Description": "Deliciosa arepa rellena con un queso tajado",
+      "Price": "3000",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso.jpg"
+    },
+    {
+      "id": 6,
+      "Name": "Arepa con huevos revueltos ",
+      "Description": "Deliciosa arepa rellena de huevos revueltos",
+      "Price": "2500",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Huevos-Revueltos.jpg"
+    },
+    {
+      "id": 7,
+      "Name": "Arepa con jamon y queso ",
+      "Description": "Deliciosa arepa rellena con jamón y queso",
+      "Price": "2500",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Jamon-Queso.jpg"
+    },
+    {
+      "id": 8,
+      "Name": "Arepa con pollo ",
+      "Description": "Deliciosa arepa rellena con pollo",
+      "Price": "3500",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Pollo.jpg"
+    },
+    {
+      "id": 9,
+      "Name": "Arepa con salchicha ",
+      "Description": "Deliciosa arepa rellena de salchicha ranchera",
+      "Price": "3000",
+      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Salchicha-Ranchera.png"
+    },
+    {
+      "id": 10,
+      "Name": "Arepa sencilla ",
+      "Description": "Deliciosa arepa sencilla",
+      "Price": "700",
+      "Image": "arepas-app/src/imagenes/Arepa-Sencilla.jpg"
     }
-  ],
+      ],
   "usuarios": [
     {
       "id": 1,
@@ -19,9 +82,42 @@
       "RegisterDate": "22/12/2001",
       "Address": "cll 3d #2-12",
       "PhoneNumber": "12312412"
+    },
+    {
+      "Email": "q@hotmial.com",
+      "Password": "dasdsa",
+      "FirstName": "xd",
+      "LastName": "xd",
+      "BirthofDate": "2022-11-07",
+      "RegisterDate": "2022-11-08",
+      "Address": "xd",
+      "PhoneNumber": "12312312",
+      "id": 2
+    },
+    {
+      "Email": "",
+      "Password": "",
+      "FirstName": "",
+      "LastName": "",
+      "BirthofDate": "",
+      "RegisterDate": "",
+      "Address": "",
+      "PhoneNumber": "",
+      "id": 3
+    },
+    {
+      "Email": "xd@hotmail.com",
+      "Password": "asdasd",
+      "FirstName": "asdasd",
+      "LastName": "asdasd",
+      "BirthofDate": "2022-11-02",
+      "RegisterDate": "",
+      "Address": "asdasd",
+      "PhoneNumber": "123123",
+      "id": 4
     }
   ],
-"Orders": [
+  "Orders": [
     {
       "id": 1,
       "CreatedDate": "",
@@ -34,7 +130,7 @@
       "DeliveryLastName": ""
     }
   ],
-"OrderDetails": [
+  "OrderDetails": [
     {
       "id": 1,
       "OrderId": "",

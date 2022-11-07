@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import logo from '../imagenes/arepagif.gif';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import './NavBar.css';
 
 const baseUrl = "http://localhost:3000/usuarios";
 const cookies = new Cookies();
@@ -27,7 +27,7 @@ class Login extends Component {
   }
 
   iniciarSesion = async () => {
-    await axios.get(baseUrl, { params: { Password: this.state.form.Email, Password: (this.state.form.Password) } })
+    await axios.get(baseUrl, { params: { Email: this.state.form.Email, Password: (this.state.form.Password) } })
       .then(response => {
         return response.data;
       })
@@ -61,28 +61,36 @@ class Login extends Component {
   render() {
     return (
       <Container className='mt-3'>
-          <div className="form-group">
-            <label>Usuario: </label>
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              name="Email"
-              onChange={this.handleChange}
-            />
-            <br />
-            <label>Contraseña: </label>
-            <br />
-            <input
-              type="password"
-              className="form-control"
-              name="Password"
-              onChange={this.handleChange}
-            />
-            <br />
-            <button className="btn btn-primary" onClick={()=> this.iniciarSesion()}>Iniciar Sesión</button>
+        <h1 className='text-light letrica'>Inicio de sesion</h1>
+        <div className='pt-3'></div>
+        <div className='border-bottom border border-white mx-auto'></div>
+
+        <Form.Group className="form-group mb-3" controlId="formBasicEmail">
+          <div className='d-flex justify-content-start text-light letrica'>
+            <Form.Label>Email address</Form.Label>
           </div>
-    </Container>  
+          <input
+            type="text"
+            className="form-control"
+            name="Email"
+            onChange={this.handleChange}
+            placeholder="ingrese su email"
+          />
+          <div className='d-flex justify-content-start text-light letrica'>
+              <Form.Label>Password</Form.Label>
+            </div>
+          <input
+            type="password"
+            className="form-control"
+            name="Password"
+            onChange={this.handleChange}
+            placeholder="ingrese su contraseña"
+          />
+          <br />
+          <button className="btn btn-primary" onClick={() => this.iniciarSesion()}>Iniciar Sesión</button>
+        </Form.Group>
+        <img src={logo} className="img-fluid" alt='lol'/>
+      </Container>
     );
   }
 }
