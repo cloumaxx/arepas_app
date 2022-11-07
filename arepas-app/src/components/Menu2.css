@@ -1,0 +1,98 @@
+.tittle{
+    font-size: 2.2rem;
+    padding: 10rem 0 0 0;
+    color: aliceblue;
+    text-align: center;
+}
+
+.arepas{
+    padding: 5rem 2rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 3rem 1rem;
+    box-sizing:border-box;
+}
+
+.arepa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, .2);
+    border: 6px solid transparent;
+    border-radius: 5px;
+}
+
+.arepa:hover{
+    border: 6px solid rgb(196, 196, 196);
+}
+
+.arepa_img img{
+    width: 300px;
+}
+
+.arepa_footer{
+    padding: 1rem;
+}
+
+.arepa_footer h1{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    font-family: Helvetica, sans-serif;
+}
+
+.arepa_footer p{
+    font-weight: 700;
+    color: rgba(0, 0, 0, .555);
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.arepa_footer .price{
+    font-size: 2rem;
+    color: rgba(9, 128, 180, 0.981);
+}
+
+.arepa .buttom{
+    width: 100%;
+    height: 45px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem 2rem;
+}
+
+.buttom .btn{
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buttom button{
+    background-color: rgb(66, 66, 66);
+    max-width: 25px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.buttom .div{
+background-color: rgba(9, 128, 180, 0.981);
+display: grid;
+text-align: center;
+align-items: center;
+margin-left: -2rem;
+border-radius: 5px;
+}
+
+.buttom div a{
+    color: white;
+    font-weight: 700;
+}
+
+.buttom div a:hover{
+    color: white;
+}
