@@ -1,8 +1,46 @@
 {
   "arepas": [
-    { "id": 1, "Name": "arepa", "Description": "bien rica","Price":"1000","Image":"xd" }
+    {
+      "id": 1,
+      "Name": "arepa",
+      "Description": "bien rica",
+      "Price": "1000",
+      "Image": "xd"
+    }
   ],
   "usuarios": [
-    { "id": 1, "Email": "yulian@hotmail.com", "Password":"123", "FirstName":"yulian", "LastName":"lozano", "BirthofDate":"22/12/2001", "RegisterDate":"22/12/2001", "Address":"cll 3d #2-12", "PhoneNumber":"12312412"}
+    {
+      "id": 1,
+      "Email": "yulian@hotmail.com",
+      "Password": "123",
+      "FirstName": "yulian",
+      "LastName": "lozano",
+      "BirthofDate": "22/12/2001",
+      "RegisterDate": "22/12/2001",
+      "Address": "cll 3d #2-12",
+      "PhoneNumber": "12312412"
+    }
+  ],
+"Orders": [
+    {
+      "id": 1,
+      "CreatedDate": "",
+      "CustomerId": "",
+      "TotalOrder": "",
+      "Notes": "",
+      "DeliveryAddress": "",
+      "DeliveryPhoneNumber": "",
+      "DeliveryFirstName": "",
+      "DeliveryLastName": ""
+    }
+  ],
+"OrderDetails": [
+    {
+      "id": 1,
+      "OrderId": "",
+      "ProductId": "",
+      "Quantity": "",
+      "TotalProduct": ""
+    }
   ]
 }

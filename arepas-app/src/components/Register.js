@@ -1,79 +1,63 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { Col, Container, Row } from 'react-bootstrap';
-import logo from '../imagenes/arepagif.gif';
+import React, { useState } from 'react';
+import axios from 'axios';
 import DatePicker from "react-multi-date-picker"
-import './Menu.css'
 
-export const Register = () => (
-  <Container className='mt-3'>
-    <h1 className='text-light letrica'>Registro</h1>
-    <div className='pt-3'></div>
-    <div className='border-bottom border border-white mx-auto'></div>
-    <Row>
-      <Col>
-        <Form>
-          {/* email */}
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <div className='d-flex justify-content-start text-light letrica'>
-              <Form.Label>Email</Form.Label>
-            </div>
-            <Form.Control type="email" placeholder="ingrese su email" />
-          </Form.Group>
+export const Register = () => {
 
-          {/* contraseña */}
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <div className='d-flex justify-content-start text-light letrica'>
-              <Form.Label>contraseña</Form.Label>
-            </div>
-            <Form.Control type="password" placeholder="ingrese su contraseña" />
-          </Form.Group>
+  const [fromData, setFormData] = useState({
+    nombre: "",
+    apellido: "",
+    username: "",
+    password: "",
+  });
 
-          <Row>
-            {/* nombre */}
-            <Form.Group as={Col} className="mb-3" controlId="formBasicPassword">
-              <div className='d-flex justify-content-start text-light letrica'>
-                <Form.Label>primer nombre</Form.Label>
-              </div>
-              <Form.Control type="text" placeholder="primer nombre" />
-            </Form.Group>
+  const handleFormSubmit = async (e) => {
 
-            {/* apellido */}
-            <Form.Group as={Col} className="mb-3" controlId="formBasicPassword">
-              <div className='d-flex justify-content-start text-light letrica'>
-                <Form.Label>apellido</Form.Label>
-              </div>
-              <Form.Control type="text" className='text-break' placeholder="segundo apellido" />
-            </Form.Group>
-          </Row>
+    let response = await axios.post('http://localhost:3000/usuarios', fromData);
 
-          {/* direcion  y fecha*/}
-          <Row>
-          <Form.Group as={Col} className="mb-3" controlId="formBasicAdress">
-            <div className='d-flex justify-content-start text-light letrica'>
-              <Form.Label>direcion</Form.Label>
-            </div>
-            <Form.Control type="text" placeholder="ingrese su direcion" />
-          </Form.Group>
+    if (response) {
+      alert("dato enviado con exito");
+    } else {
+      alert("algo salio mal");
+    }
 
-          <Form.Group as={Col} className="mb-3" controlId="formBasicAdress">
-            <div className='d-flex justify-content-start text-light letrica'>
-              <Form.Label>direcion</Form.Label>
-            </div>
-            <DatePicker className="bg-dark "/>
-          </Form.Group>
-          </Row>
-          
-          {/* submit button */}
-          <Button variant="primary" type="submit" className='letrica'>
-            Submit
-          </Button>
-        </Form>
-      </Col>
-      <Col xs={7}>
-        <img src={logo} className="img-fluid" alt='lol' />
-      </Col>
-    </Row>
-  </Container>
-)
+    setFormData({
+      nombre: "",
+      apellido: "",
+      username: "",
+      password: "",
+    });
+  }
+
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-md-7">
+          <h1 className="row"> Register </h1>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">nombre</label>
+          <input type="nombre" class="form-control" id="exampleFormControlInput1" value={fromData.nombre} onChange={(e) => setFormData({ ...fromData, nombre: e.target.value })} />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">apellido</label>
+          <input type="apellido" class="form-control" id="exampleFormControlInput1" value={fromData.apellido} onChange={(e) => setFormData({ ...fromData, apellido: e.target.value })} />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input type="username" class="form-control" id="exampleFormControlInput1" value={fromData.username} onChange={(e) => setFormData({ ...fromData, username: e.target.value })} />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">password</label>
+          <input type="password" class="form-control" id="exampleFormControlInput1" value={fromData.password} onChange={(e) => setFormData({ ...fromData, password: e.target.value })} />
+        </div>
+        <div class="mb-3">
+          <DatePicker className="bg-dark " />
+        </div>
+        <div class="mb-3">
+          <button className='btn btn-success' onClick={handleFormSubmit}>Registrate</button>
+        </div>
+      </div>
+    </div>
+  )
+}
