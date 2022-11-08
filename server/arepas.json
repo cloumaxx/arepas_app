@@ -70,7 +70,6 @@
       "Price": "700",
       "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Sencilla.jpg"
     }
-
   ],
   "usuarios": [
     {
@@ -116,6 +115,17 @@
       "Address": "asdasd",
       "PhoneNumber": "123123",
       "id": 4
+    },
+    {
+      "Email": "piso@gamail.com",
+      "Password": "12345",
+      "FirstName": "piso",
+      "LastName": "gmail",
+      "BirthofDate": "2020-06-09",
+      "RegisterDate": "",
+      "Address": "cra34#12-99",
+      "PhoneNumber": "3213425678",
+      "id": 5
     }
   ],
   "Orders": [
@@ -130,7 +140,7 @@
       "DeliveryFirstName": "",
       "DeliveryLastName": ""
     }
-      ],
+  ],
   "OrderDetails": [
     {
       "id": 1,
