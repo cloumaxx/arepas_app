@@ -8,10 +8,19 @@ const cookies = new Cookies();
 
 class NavigationBar extends Component {
 
+  cerrarSesion = () => {
+    cookies.remove('id', { path: "/" });
+    cookies.remove('apellido_paterno', { path: "/" });
+    cookies.remove('apellido_materno', { path: "/" });
+    cookies.remove('nombre', { path: "/" });
+    cookies.remove('username', { path: "/" });
+    window.location.href = '/';
+  }
+
   componentDidMount() {
     if (cookies.get('username')) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -34,21 +43,21 @@ class NavigationBar extends Component {
           </Navbar.Collapse>
         </Navbar >
       );
-    } if(cookies.get('username')) {
-      return(
+    } if (cookies.get('username')) {
+      return (
         <Navbar className='navbar border border-white ' >
-        <img src={logo} className="App-logo" alt='lol' />
-        <Navbar.Brand className='text-light letrica'>Arepa-app</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className='me-auto' >
-            <Nav.Item><Nav.Link className='text-light letrica' href="/"  >Menu</Nav.Link></Nav.Item>
-          </Nav>
-          <Nav className="ms-auto">
-
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar >
+          <img src={logo} className="App-logo" alt='lol' />
+          <Navbar.Brand className='text-light letrica'>Arepa-app</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className='me-auto' >
+              <Nav.Item><Nav.Link className='text-light letrica' href="/"  >Menu</Nav.Link></Nav.Item>
+            </Nav>
+            <Nav className="ms-auto">
+            <Nav.Item ><Nav.Link className='text-light letrica' href="./Register" onClick={() => this.cerrarSesion()}>Cerrar Sesión</Nav.Link></Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar >
       );
     }
 
