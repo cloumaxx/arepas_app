@@ -28,7 +28,7 @@ class NavigationBar extends Component {
   render() {
     if (!cookies.get('username')) {
       return (
-        <Navbar className='navbar border border-white ' >
+        <Navbar className='navbar border border-white ' sticky="top" >
           <img src={logo} className="App-logo" alt='lol' />
           <Navbar.Brand className='text-light letrica'>Arepa-app</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -45,7 +45,7 @@ class NavigationBar extends Component {
       );
     } if (cookies.get('username')) {
       return (
-        <Navbar className='navbar border border-white ' >
+        <Navbar className='navbar border border-white '  sticky="top">
           <img src={logo} className="App-logo" alt='lol' />
           <Navbar.Brand className='text-light letrica'>Arepa-app</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

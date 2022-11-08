@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Navbar from 'react-bootstrap/Navbar';
 import './Menu.css'
 
 export function Menu() {
@@ -65,28 +66,29 @@ export function Menu() {
   return (
     <Container fluid>
       <h1 className='letrica text-white'>Arepas Venezolanas!!!</h1>
-      <div className='border-bottom border border-white mx-auto'></div>
-      <div className='pt-3'></div>
-      <NavDropdown title="Link" id="navbarScrollingDropdown" className='text-white'>
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-      <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-      <Button variant="outline-success">Search</Button>
-      <div className='pb-3'></div>
-      </Form>
+      <div className='pb-3'>
+        <Navbar expand="lg" bg="dark" variant="dark" className='rounded'>
+          <Container>
+            <Navbar.Brand href="#">
+              <NavDropdown title="Elije tu tipo de Arepa" id="navbarScrollingDropdown" className='text-white'>
+                <NavDropdown.Item href="#action3">Sin carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con queso</NavDropdown.Item>
+              </NavDropdown>
+            </Navbar.Brand>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Container>
+        </Navbar>
+      </div>
+
       <Row xs={3} md={4} className="g-4">
         {data.map(usr => (
           <Col>
@@ -100,34 +102,34 @@ export function Menu() {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                <Modal isOpen={showModalCreate}>
-                  <ModalHeader>Brindanos tus Datos!!</ModalHeader>
-                  <ModalBody>
-                    <Form >
-                      <Form.Group >
-                        <Form.Label >Direcion:</Form.Label>
-                        <Form.Control type="text" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange} />
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.Label>Description:</Form.Label>
-                        <Form.Control type="text" id="txtName" name="name" placeholder="Julio Robles" required onChange={handleChange} />
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.Label>Price:</Form.Label>
-                        <Form.Control type="text" id="txtUsername" name="username" placeholder="username" required onChange={handleChange} />
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.Label>Image:</Form.Label>
-                        <Form.Control type="password" id="txtPassword" name="password" onChange={handleChange} />
-                      </Form.Group>
-                    </Form>
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button variant="primary" onClick={() => postUser()}>Llevlo a mi casa chamo!!</Button>
-                    <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
-                  </ModalFooter>
-                </Modal>
-                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
+                  <Modal isOpen={showModalCreate}>
+                    <ModalHeader>Brindanos tus Datos!!</ModalHeader>
+                    <ModalBody>
+                      <Form >
+                        <Form.Group >
+                          <Form.Label >Direcion:</Form.Label>
+                          <Form.Control type="text" id="txtEmail" name="email" placeholder="su direcion" required onChange={handleChange} />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Nombre de quien lo recibe:</Form.Label>
+                          <Form.Control type="text" id="txtName" name="name" placeholder="su nombre" required onChange={handleChange} />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Cantidad:</Form.Label>
+                          <Form.Control type="number" id="txtUsername" name="username" placeholder="Cantidades exactas" required onChange={handleChange} />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Datos extra c:</Form.Label>
+                          <Form.Control type="text" id="Description" name="password" onChange={handleChange} />
+                        </Form.Group>
+                      </Form>
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button variant="primary" onClick={() => postUser()}>Llevalo a mi casa chamo!!</Button>
+                      <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
+                    </ModalFooter>
+                  </Modal>
+                  <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
                 </Card.Footer>
               </Card>
             </Container>
