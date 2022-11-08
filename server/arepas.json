@@ -69,18 +69,8 @@
       "Description": "Deliciosa arepa sencilla",
       "Price": "700",
       "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Sencilla.jpg"
-    },
-    {
-      "Name": "",
-      "Description": "",
-      "Price": "",
-      "Image": "",
-      "email": "asdasd",
-      "name": "asdasd",
-      "username": "asdasd",
-      "password": "asdasd",
-      "id": 11
     }
+
   ],
   "usuarios": [
     {
