@@ -127,7 +127,7 @@ export function Menu() {
 
   return (
     <Container className="text-center text-md-left text-light">
-      <h1>Arepas Venezolanas!!!</h1>
+      <h1 className='letrica'>Arepas Venezolanas!!!</h1>
       <Table id="ArepasTable">
         <thead>
           <tr className='text-light letrica'>
@@ -154,15 +154,15 @@ export function Menu() {
               <td className='letrica text-secondary'>{usr.Name}</td>
               <td className='letrica text-secondary'>{usr.Description}</td>
               <td className='letrica text-secondary'>{usr.Price}</td>
-              <img src={`${usr.Image}`} className='col-md-4 img-thumbnail' alt="car" />
+              <img src={`${usr.Image}`} className='col-md-4 img-thumbnail mt-3 mb-3' alt="car" />
               <td>
                 <Modal isOpen={showModalCreate}>
-                  <ModalHeader>Create User</ModalHeader>
+                  <ModalHeader>Brindanos tus Datos!!</ModalHeader>
                   <ModalBody>
                     <Form >
                       <Form.Group >
-                        <Form.Label >Name:</Form.Label>
-                        <Form.Control type="email" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange} />
+                        <Form.Label >Direcion:</Form.Label>
+                        <Form.Control type="text" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange} />
                       </Form.Group>
                       <Form.Group>
                         <Form.Label>Description:</Form.Label>
@@ -179,7 +179,7 @@ export function Menu() {
                     </Form>
                   </ModalBody>
                   <ModalFooter>
-                    <Button variant="primary" onClick={() => postUser()}>Create</Button>
+                    <Button variant="primary" onClick={() => postUser()}>Llevlo a mi casa chamo!!</Button>
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>
