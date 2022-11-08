@@ -38,7 +38,7 @@ export function Menu() {
 
   const postUser = async () => {
     delete currentUser.id;
-    await axios.post(baseUrl, currentUser)
+    await axios.post(Orders, currentUser)
       .then(response => {
         GetUsers();
         openCloseModalCreate();

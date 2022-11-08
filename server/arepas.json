@@ -1,7 +1,7 @@
 {
   "arepas": [
-	  {
-"id": 1,
+    {
+      "id": 1,
       "Name": "Arepa con chorizo",
       "Description": "Deliciosa arepa acompañada de chorizo de su res o pollo",
       "Price": "2500",
@@ -69,8 +69,19 @@
       "Description": "Deliciosa arepa sencilla",
       "Price": "700",
       "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Sencilla.jpg"
+    },
+    {
+      "Name": "",
+      "Description": "",
+      "Price": "",
+      "Image": "",
+      "email": "asdasd",
+      "name": "asdasd",
+      "username": "asdasd",
+      "password": "asdasd",
+      "id": 11
     }
-      ],
+  ],
   "usuarios": [
     {
       "id": 1,
@@ -129,7 +140,7 @@
       "DeliveryFirstName": "",
       "DeliveryLastName": ""
     }
-  ],
+      ],
   "OrderDetails": [
     {
       "id": 1,
