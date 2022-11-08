@@ -1,28 +1,29 @@
 import axios from 'axios';
-import { FontAwesomeIcon as Fas} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon as Fas } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { Button, Container, Table, Form } from 'react-bootstrap';
 import './Menu.css'
 
-export function Menu()
-{
+export function Menu() {
   const baseUrl = "http://localhost:3000/arepas";
+  const Orders = "http://localhost:3000/Orders";
+  const OrdersDetails = "http://localhost:3000/OrderDetails";
 
-  const [ data, setData]=useState([]);  
+  const [data, setData] = useState([]);
 
-  const GetUsers=async()=>{
+  const GetUsers = async () => {
     await axios.get(baseUrl)
-    .then (response=>{
-      setData(response.data);
-    }).catch(error=>{
-      console.log(error);
-    })
+      .then(response => {
+        setData(response.data);
+      }).catch(error => {
+        console.log(error);
+      })
   }
 
-  const [currentUser, setCurrentUser]= useState({
-    id: '', 
+  const [currentUser, setCurrentUser] = useState({
+    id: '',
     Name: '',
     Description: '',
     Price: '',
@@ -30,248 +31,164 @@ export function Menu()
   });
 
   // Create 
-const [showModalCreate, setShowModalCreate]= useState(false);
-const openCloseModalCreate=()=>{
- setShowModalCreate(!showModalCreate);
-}  
+  const [showModalCreate, setShowModalCreate] = useState(false);
+  const openCloseModalCreate = () => {
+    setShowModalCreate(!showModalCreate);
+  }
 
-const postUser = async() => {
-  delete currentUser.id;
-  await axios.post(baseUrl, currentUser)
-  .then (response=>{
-    GetUsers();
-    openCloseModalCreate();
-  }).catch(error=>{
-    console.log(error);
-  })
-}
+  const postUser = async () => {
+    delete currentUser.id;
+    await axios.post(baseUrl, currentUser)
+      .then(response => {
+        GetUsers();
+        openCloseModalCreate();
+      }).catch(error => {
+        console.log(error);
+      })
+  }
 
-  const handleChange=e=>{
-    const {name, value}= e.target;
+  const handleChange = e => {
+    const { name, value } = e.target;
     setCurrentUser({
       ...currentUser,
       [name]: value
     })
-    }
-
-  // Update
-const [showModalUpdate, setShowModalUpdate]= useState(false);
-const openCloseModalUpdate=()=>{
-  setShowModalUpdate(!showModalUpdate);
-}  
-
-const selectCurrentUser=(user, action)=>{
-  setCurrentUser(user);
-  switch (action) {
-    case "Edit":
-      openCloseModalUpdate();
-      break;
-    case "Details":
-      openCloseModalDetails();
-      break;      
-    case "Delete":
-      openCloseModalDelete();
-      break;             
-    default:
-      break;
-  }       
   }
 
-  const putUser = async() => {
-    await axios.put(baseUrl+"/"+ currentUser.id, currentUser)
-    .then (response=>{
-      var result = response.data;
-      var updatedData = data;
-      updatedData.map(usr=>{
-        if(usr.id===currentUser.id){
-          usr.Name = result.email;
-          usr.Description = result.name;
-          usr.Price = result.username;
-          usr.Image = result.password;
-        }
-      });
-    GetUsers();
-      openCloseModalUpdate();
-    }).catch(error=>{
-      console.log(error);
-    })
+  // Update
+  const [showModalUpdate, setShowModalUpdate] = useState(false);
+  const openCloseModalUpdate = () => {
+    setShowModalUpdate(!showModalUpdate);
+  }
+
+  const selectCurrentUser = (user, action) => {
+    setCurrentUser(user);
+    switch (action) {
+      case "Edit":
+        openCloseModalUpdate();
+        break;
+      case "Details":
+        openCloseModalDetails();
+        break;
+      case "Delete":
+        openCloseModalDelete();
+        break;
+      default:
+        break;
+    }
+  }
+
+  const putUser = async () => {
+    await axios.put(baseUrl + "/" + currentUser.id, currentUser)
+      .then(response => {
+        var result = response.data;
+        var updatedData = data;
+        updatedData.map(usr => {
+          if (usr.id === currentUser.id) {
+            usr.Name = result.email;
+            usr.Description = result.name;
+            usr.Price = result.username;
+            usr.Image = result.password;
+          }
+        });
+        GetUsers();
+        openCloseModalUpdate();
+      }).catch(error => {
+        console.log(error);
+      })
   }
 
   // Details
-const [showModalDetails, setShowModalDetails]= useState(false);
-const openCloseModalDetails=()=>{
-  setShowModalDetails(!showModalDetails);
-}
+  const [showModalDetails, setShowModalDetails] = useState(false);
+  const openCloseModalDetails = () => {
+    setShowModalDetails(!showModalDetails);
+  }
 
   // Delete
-  const [showModalDelete, setShowModalDelete]= useState(false);
-  const openCloseModalDelete=()=>{
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const openCloseModalDelete = () => {
     setShowModalDelete(!showModalDelete);
   }
 
-  const deleteUser = async() => {
-    await axios.delete(baseUrl+"/"+ currentUser.id)
-    .then (()=>{
-      setData(data.filter(usr=>usr.id!==currentUser.id));
-      openCloseModalDelete();
-    }).catch(error=>{
-      console.log(error);
-    })
-  }  
+  const deleteUser = async () => {
+    await axios.delete(baseUrl + "/" + currentUser.id)
+      .then(() => {
+        setData(data.filter(usr => usr.id !== currentUser.id));
+        openCloseModalDelete();
+      }).catch(error => {
+        console.log(error);
+      })
+  }
 
-  useEffect(()=>{
+  useEffect(() => {
     GetUsers();
-  },[]);
+  }, []);
 
 
-return (
-  <Container className="text-center text-md-left text-light">
-    <h1>User List</h1>
-    <p><Modal isOpen={showModalCreate}>
-  <ModalHeader>Create User</ModalHeader>
-  <ModalBody>
-    <Form >
-      <Form.Group >
-        <Form.Label >Name:</Form.Label>
-        <Form.Control type="email" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Description:</Form.Label>
-        <Form.Control type="text" id="txtName" name="name" placeholder="Julio Robles" required onChange={handleChange}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Price:</Form.Label>
-        <Form.Control type="text" id="txtUsername" name="username" placeholder="username" required onChange={handleChange}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Image:</Form.Label>
-        <Form.Control type="password" id="txtPassword" name="password"  onChange={handleChange}/>
-      </Form.Group>
-    </Form>
-  </ModalBody>
-  <ModalFooter>
-    <Button variant="primary" onClick={()=>postUser()}>Create</Button>
-    <Button variant="outline-info" onClick={()=>openCloseModalCreate()}>Back</Button>
-  </ModalFooter>
-</Modal>
-<Button className="left" variant="success btn-sm" onClick={()=>openCloseModalCreate()}> <Fas icon={faPlus} /> New</Button>
-    
-    </p>
-    <Table id="UsersTable">
-      <thead>
-          <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Image</th>
-              <th>Actions</th>
+  return (
+    <Container className="text-center text-md-left text-light">
+      <h1 className='letrica'>Arepas Venezolanas!!!</h1>
+      <Table id="ArepasTable">
+        <thead>
+          <tr className='text-light letrica'>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
-      <tbody>
-        {data.map(usr=>(
-          <tr key={usr.id}>
-            <td>{usr.Name}</td>
-            <td>{usr.Description}</td>
-            <td>{usr.Price}</td>
-            <td>{usr.Image}</td>
-            <td>{usr.Image}</td>
-            <td>
-            {/* Update */}
-<Modal isOpen={showModalUpdate}>
-  <ModalHeader>Edit User</ModalHeader>
-  <ModalBody>
-    <Form>
-      <Form.Group>
-        <Form.Label>Id:</Form.Label>
-        <Form.Control type="text" id="txtId" name="id" readOnly value={currentUser && currentUser.id}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange}  value={currentUser && currentUser.email}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label >Name:</Form.Label>
-        <Form.Control type="text" id="txtName" name="name" placeholder="Julio Robles" required onChange={handleChange}  value={currentUser && currentUser.name}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" id="txtUsername" name="username" placeholder="username" required onChange={handleChange}  value={currentUser && currentUser.username}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" id="txtPassword" name="password"  onChange={handleChange}  value={currentUser && currentUser.password}/>
-      </Form.Group>
-    </Form>
-  </ModalBody>
-  <ModalFooter>
-    <Button variant="primary" onClick={()=>putUser()}>Save</Button>
-    <Button variant="outline-info" onClick={()=>openCloseModalUpdate()}>Back</Button>
-  </ModalFooter>
-</Modal>
-
-            <Button variant="outline-primary" onClick={()=>selectCurrentUser(usr, "Edit")}>Edit</Button>{"  "} 
-              {/* Details */}
-<Modal isOpen={showModalDetails}>
-  <ModalHeader>Details User</ModalHeader>
-  <ModalBody>
-    <Form>
-      <Form.Group>
-        <Form.Label>Id:</Form.Label>
-        <Form.Control type="text" id="txtId" name="id" readOnly value={currentUser && currentUser.id}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" id="txtEmail" name="email" readOnly value={currentUser && currentUser.email}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Name:</Form.Label>
-        <Form.Control type="text" id="txtName" name="name" readOnly value={currentUser && currentUser.name}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" id="txtUsername" name="username" readOnly value={currentUser && currentUser.username}/>
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="text" id="txtPassword" name="password" readOnly value={currentUser && currentUser.password}/>
-      </Form.Group>
-    </Form>
-  </ModalBody>
-  <ModalFooter>
-    <Button variant="outline-info" onClick={()=>openCloseModalDetails()}>Back</Button>
-  </ModalFooter>
-</Modal>
-            
-            <Button variant="outline-warning" onClick={()=>selectCurrentUser(usr, "Details")}>Details</Button>{"  "}
-            {/* Delete */}
-<Modal isOpen={showModalDelete}>
-  <ModalHeader>Are you sure to delete this user?</ModalHeader>
-  <ModalBody>
-    <Form>
-      <Form.Group>
-        <Form.Label><b>Id:</b></Form.Label>
-        <Form.Label>{currentUser && currentUser.id}</Form.Label><br/>
-        <Form.Label><b>Email:</b></Form.Label>
-        <Form.Label>{currentUser && currentUser.email}</Form.Label><br/>
-        <Form.Label><b>Name:</b></Form.Label>
-        <Form.Label>{currentUser && currentUser.name}</Form.Label><br/>
-        <Form.Label><b>Username:</b></Form.Label>
-        <Form.Label>{currentUser && currentUser.username}</Form.Label><br/>
-      </Form.Group>
-    </Form>
-  </ModalBody>
-  <ModalFooter>
-    <Button variant="danger" onClick={()=>deleteUser(currentUser.id)}>Delete</Button>
-    <Button variant="outline-info" onClick={()=>openCloseModalDelete()}>Back</Button>
-  </ModalFooter>
-</Modal>
-            <Button variant="outline-danger" onClick={()=>selectCurrentUser(usr, "Delete")}>Delete</Button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-  </Container>
-);
+        <tbody>
+          {data.map(usr => (
+            <tr key={usr.id}>
+              {/* <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Con-Chorizo.jpg" className='img-thumbnail' alt="car" />
+                  <div class="card-body">
+                    <h5 class="card-title">{usr.Name}</h5>
+                    <p class="card-text">{usr.Description}</p>
+                    <p className='card-text'>{usr.Price}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div> */}
+              <td className='letrica text-secondary'>{usr.Name}</td>
+              <td className='letrica text-secondary'>{usr.Description}</td>
+              <td className='letrica text-secondary'>{usr.Price}</td>
+              <img src={`${usr.Image}`} className='col-md-4 img-thumbnail mt-3 mb-3' alt="car" />
+              <td>
+                <Modal isOpen={showModalCreate}>
+                  <ModalHeader>Brindanos tus Datos!!</ModalHeader>
+                  <ModalBody>
+                    <Form >
+                      <Form.Group >
+                        <Form.Label >Direcion:</Form.Label>
+                        <Form.Control type="text" id="txtEmail" name="email" placeholder="username@domain.com" required onChange={handleChange} />
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.Label>Description:</Form.Label>
+                        <Form.Control type="text" id="txtName" name="name" placeholder="Julio Robles" required onChange={handleChange} />
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.Label>Price:</Form.Label>
+                        <Form.Control type="text" id="txtUsername" name="username" placeholder="username" required onChange={handleChange} />
+                      </Form.Group>
+                      <Form.Group>
+                        <Form.Label>Image:</Form.Label>
+                        <Form.Control type="password" id="txtPassword" name="password" onChange={handleChange} />
+                      </Form.Group>
+                    </Form>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button variant="primary" onClick={() => postUser()}>Llevlo a mi casa chamo!!</Button>
+                    <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
+                  </ModalFooter>
+                </Modal>
+                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}> <Fas icon={faPlus} />Ordenar!!</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
+  );
 }

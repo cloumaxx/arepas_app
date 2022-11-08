@@ -1,6 +1,5 @@
-
 import './App.css';
-import { NavigationBar } from './components/NavBar';
+import NavigationBar  from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Menu } from './components/Menu';
