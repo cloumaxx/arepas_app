@@ -137,6 +137,17 @@
       "Address": "cr17 #54-98",
       "PhoneNumber": "3213456798",
       "id": 6
+    },
+    {
+      "Email": "m@gmail.com",
+      "Password": "12345",
+      "FirstName": "julio",
+      "LastName": "robles",
+      "BirthofDate": "2016-06-16",
+      "RegisterDate": "2022-11-08",
+      "Address": "cra 34 # 34-12",
+      "PhoneNumber": "3211234353",
+      "id": 7
     }
   ],
   "Orders": [

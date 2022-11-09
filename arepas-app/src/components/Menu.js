@@ -90,7 +90,7 @@ export function Menu() {
           </Container>
         </Navbar>
       </div>
-      <Row xs={3} md={4} className="g-4">
+      <Row xs={3} md={3} className="g-4">
         {data.map(usr => (
           <Col>
             <Container>
