@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Navbar from 'react-bootstrap/Navbar';
 import './Menu.css'
 import '../components/Menu.css'
 
@@ -67,27 +68,28 @@ export function Menu() {
     <Container fluid>
       <h1 className='letrica text-white'>!!!Arepas!!!</h1>
       <div className='border-bottom border border-white mx-auto'></div>
-      <div className='pt-3'></div>
-      <NavDropdown title="Link" id="navbarScrollingDropdown" className='text-white'>
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-      <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-      <Button variant="outline-success">Search</Button>
-      <div className='pt-3'></div>
-      </Form>
+      <div className='pt-3'>
+      <Navbar expand="lg" bg="dark" variant="dark" className='rounded'>
+          <Container>
+            <Navbar.Brand href="#">
+              <NavDropdown title="Elije tu tipo de Arepa" id="navbarScrollingDropdown" className='text-white'>
+                <NavDropdown.Item href="#action3">Sin carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con queso</NavDropdown.Item>
+              </NavDropdown>
+            </Navbar.Brand>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Container>
+        </Navbar>
+      </div>
       <Row xs={3} md={4} className="g-4">
         {data.map(usr => (
           <Col>
