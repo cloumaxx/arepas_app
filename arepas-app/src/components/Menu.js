@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './Menu.css'
+import '../components/Menu.css'
 
 export function Menu() {
   const baseUrl = "http://localhost:3000/arepas";
@@ -64,7 +65,7 @@ export function Menu() {
 
   return (
     <Container fluid>
-      <h1 className='letrica text-white'>Arepas Venezolanas!!!</h1>
+      <h1 className='letrica text-white'>!!!Arepas!!!</h1>
       <div className='border-bottom border border-white mx-auto'></div>
       <div className='pt-3'></div>
       <NavDropdown title="Link" id="navbarScrollingDropdown" className='text-white'>
@@ -85,7 +86,7 @@ export function Menu() {
               aria-label="Search"
             />
       <Button variant="outline-success">Search</Button>
-      <div className='pb-3'></div>
+      <div className='pt-3'></div>
       </Form>
       <Row xs={3} md={4} className="g-4">
         {data.map(usr => (

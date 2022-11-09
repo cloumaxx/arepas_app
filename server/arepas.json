@@ -126,6 +126,17 @@
       "Address": "cra34#12-99",
       "PhoneNumber": "3213425678",
       "id": 5
+    },
+    {
+      "Email": "k@gmail.com",
+      "Password": "09876",
+      "FirstName": "kawasaky",
+      "LastName": "zuzuki",
+      "BirthofDate": "2018-07-06",
+      "RegisterDate": "2022-11-08",
+      "Address": "cr17 #54-98",
+      "PhoneNumber": "3213456798",
+      "id": 6
     }
   ],
   "Orders": [
