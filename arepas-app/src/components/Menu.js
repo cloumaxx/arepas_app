@@ -1,19 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { Button, Container, Table, Form } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Button, Container, Form ,Card,Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
-import './Menu.css'
+import {baseUrl,imagesUrl,Orders} from '../conexiones/urls';
+
 import '../components/Menu.css'
 
 export function Menu() {
-  const baseUrl = "http://localhost:3000/arepas";
-  const Orders = "http://localhost:3000/Orders";
-  const OrdersDetails = "http://localhost:3000/OrderDetails";
 
   const [data, setData] = useState([]);
 
@@ -34,7 +30,7 @@ export function Menu() {
     Image: ''
   });
 
-  // Create 
+  // Crear orden
   const [showModalCreate, setShowModalCreate] = useState(false);
   const openCloseModalCreate = () => {
     setShowModalCreate(!showModalCreate);
@@ -95,7 +91,7 @@ export function Menu() {
           <Col>
             <Container>
               <Card>
-                <Card.Img variant="top" src={`${usr.Image}`} className="img-thumbnail" />
+                <Card.Img variant="top" src={`${imagesUrl+usr.Image}`} className="img-thumbnail" />
                 <Card.Body>
                   <Card.Title>{usr.Name}</Card.Title>
                   <Card.Text>

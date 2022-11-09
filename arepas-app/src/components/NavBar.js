@@ -54,7 +54,7 @@ class NavigationBar extends Component {
               <Nav.Item><Nav.Link className='text-light letrica' href="/"  >Menu</Nav.Link></Nav.Item>
             </Nav>
             <Nav className="ms-auto">
-            <Nav.Item ><Nav.Link className='text-light letrica' href="./Register" onClick={() => this.cerrarSesion()}>Cerrar Sesión</Nav.Link></Nav.Item>
+              <Nav.Item ><Nav.Link className='text-light letrica' href="./Register" onClick={() => this.cerrarSesion()}>Cerrar Sesión</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar >
