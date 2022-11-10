@@ -5,16 +5,19 @@ import { Button, Container, Form ,Card,Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
-import {baseUrl,imagesUrl,Orders} from '../conexiones/urls';
-
+import {imagesUrl,Orders} from '../conexiones/urls';
+import Pagination from 'react-bootstrap/Pagination';
 import '../components/Menu.css'
+
+
+let currenPage = 1;
 
 export function Menu() {
 
   const [data, setData] = useState([]);
 
   const GetUsers = async () => {
-    await axios.get(baseUrl)
+    await axios.get(`http://localhost:3000/arepas?_page=${currenPage}&_limit=6`)
       .then(response => {
         setData(response.data);
       }).catch(error => {
@@ -133,6 +136,11 @@ export function Menu() {
           </Col>
         ))}
       </Row>
+      <Pagination>
+      <Pagination.Prev />
+      <Pagination.Item >"Ultimo"</Pagination.Item>
+      <Pagination.Next />
+    </Pagination>
     </Container>
   );
 }
