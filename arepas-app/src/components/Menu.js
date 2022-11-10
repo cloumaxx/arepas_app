@@ -5,19 +5,29 @@ import { Button, Container, Form ,Card,Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
-import {imagesUrl,Orders} from '../conexiones/urls';
+import {baseUrl,imagesUrl,Orders} from '../conexiones/urls';
 import Pagination from 'react-bootstrap/Pagination';
 import '../components/Menu.css'
 
 
-let currenPage = 1;
-
 export function Menu() {
+
+  let header = fetch( baseUrl ).then( response => response.headers.get( "Link" ) ).then(function parseLinkHeader( linkHeader ) {
+    const linkHeadersArray = linkHeader.split( ", " ).map( header => header.split( "; " ) );
+    const linkHeadersMap = linkHeadersArray.map( header => {
+       const thisHeaderRel = header[1].replace( /"/g, "" ).replace( "rel=", "" );
+       const thisHeaderUrl = header[0].slice( 1, -1 );
+       return [ thisHeaderRel, thisHeaderUrl ]
+    } );
+    return Object.fromEntries( linkHeadersMap );
+ });
+
+
 
   const [data, setData] = useState([]);
 
   const GetUsers = async () => {
-    await axios.get(`http://localhost:3000/arepas?_page=${currenPage}&_limit=6`)
+    await axios.get(baseUrl)
       .then(response => {
         setData(response.data);
       }).catch(error => {
@@ -138,7 +148,13 @@ export function Menu() {
       </Row>
       <Pagination>
       <Pagination.Prev />
-      <Pagination.Item >"Ultimo"</Pagination.Item>
+      <Pagination.Item 
+      onClickCapture={()=>
+      {header.then(function(result) {
+        console.log(result.first);
+        console.log(result.next);
+        console.log(result.last);
+      })}}>"Ultimo"</Pagination.Item>
       <Pagination.Next />
     </Pagination>
     </Container>
