@@ -1,114 +1,113 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Button, Container, Table } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { React, Component } from "react";
 import {
   MDBCard,
   MDBCardBody,
   MDBCardFooter,
+  MDBCardHeader,
   MDBCardImage,
   MDBCol,
+  MDBContainer,
+  MDBIcon,
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import { imagesUrl } from "../conexiones/urls";
-import ListGroup from "react-bootstrap/ListGroup";
 
-export function Details(props) {
-  const location = useLocation();
-  const id = location.state?.Id;
-  const baseUrl = `http://localhost:3000/arepas?id=${id}`;
+export class Details extends Component {
 
-  const [data, setData] = useState([]);
-
-  const GetUsers = async () => {
-    await axios
-      .get(baseUrl)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  state = {
+    isLoading: true,
+    users: [],
+    error: null
   };
 
-  useEffect(() => {
-    GetUsers();
-  }, []);
-
-  
-  function RenderIngredientes(ingredientes) {
-    console.log(ingredientes);
-    const ingredientesList = [];
-    for (let i = 0; i < ingredientes.length; i++) {
-      ingredientesList.push(<ListGroup.Item key={"ingrediente"+i}>{ingredientes[i]}</ListGroup.Item>);
-    }
-    return ingredientesList;
+  getFetchUsers() {
+    this.setState({
+      loading: true
+    }, () => {
+      fetch("http://localhost:3000/arepas").then(res => res.json()).then(result => this.setState({
+        loading: false,
+        users: result
+      })).catch(console.log);
+    });
   }
 
-  return (
-    <Container className="text-center text-md-left">
-      <h1 className="letrica text-white">!!!Arepas!!!</h1>
-      <div className="border-bottom border border-white mx-auto"></div>
-      <div className="pt-3"></div>
-      <Table id="UsersTable">
-        <tbody>
-          {data.map((usr) => (
-            <tr key={usr.id}>
-              <td>
-              <MDBRow className="justify-content-center align-items-center h-100">
-                <MDBCol md="10" lg="8" xl="6" >
-                  <MDBCard className="card-stepper" style={{ borderRadius: "16px" }}>
-                    <MDBCardBody className="p-4">
-                      <div className="d-flex flex-row mb-4 pb-2">
-                        <div className="flex-fill">
-                          <MDBTypography tag="h5" className="bold">
-                            {usr.Name}
-                          </MDBTypography>
-                          <p className="text-muted">
-                            <span className="text-body">{usr.Description}</span>
-                          </p>
-                          <MDBTypography tag="h5" className="bold">
-                            un poco de Historia:
-                          </MDBTypography>
-                          <p className="text-muted">
-                            <span className="text-body">{usr.Historia}</span>
-                          </p>
+  componentDidMount() {
+    this.getFetchUsers();
+  }
 
-                          <MDBTypography tag="h5" className="bold">
-                            Ingredintes:
-                          </MDBTypography>
+  render() {
+    return (
+      <section className="vh-100 gradient-custom-2">
+        <MDBContainer className="py-5 h-100">
+          <MDBRow className="justify-content-center align-items-center h-100">
+            <MDBCol md="10" lg="8" xl="6">
+              <MDBCard
+                className="card-stepper"
+                style={{ borderRadius: "16px" }}
+              >
+                <MDBCardHeader className="p-4">
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div>
+                      <p className="text-muted mb-2">
+                        {" "}
+                        Nombre Arepa{" "}
+                        <span className="fw-bold text-body">xd</span>
+                      </p>
+                    </div>
+                  </div>
+                </MDBCardHeader>
+                <MDBCardBody className="p-4">
+                  <div className="d-flex flex-row mb-4 pb-2">
+                    <div className="flex-fill">
+                      <MDBTypography tag="h5" className="bold">
+                        Headphones Bose 35 II
+                      </MDBTypography>
+                      <p className="text-muted"> Qt: 1 item</p>
+                      <MDBTypography tag="h4" className="mb-3">
+                        {" "}
+                        $ 299{" "}
+                        <span className="small text-muted"> via (COD) </span>
+                      </MDBTypography>
+                      <p className="text-muted">
+                        Tracking Status on:{" "}
+                        <span className="text-body">11:30pm, Today</span>
+                      </p>
+                    </div>
+                    <div>
+                      <MDBCardImage
+                        fluid
+                        className="align-self-center"
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
+                        width="250"
+                      />
+                    </div>
+                  </div>
+                  <ul
+                    id="progressbar-1"
+                    className="mx-0 mt-0 mb-5 px-0 pt-0 pb-4"
+                  >
+                    <li className="step0 active" id="step1">
+                      <span style={{ marginLeft: "22px", marginTop: "12px" }}>
+                        PLACED
+                      </span>
+                    </li>
+                    <li className="step0 active text-center" id="step2">
+                      <span>SHIPPED</span>
+                    </li>
+                    <li className="step0 text-muted text-end" id="step3">
+                      <span style={{ marginRight: "22px" }}>DELIVERED</span>
+                    </li>
+                  </ul>
+                </MDBCardBody>
+                <MDBCardFooter className="p-4">
 
-                          <div>{RenderIngredientes(usr.IngreArepa)}</div>
-
-                          <MDBTypography tag="h4" className="mb-3">
-                            Precio: {usr.Price}
-                          </MDBTypography>
-                        </div>
-                        <div>
-                          <MDBCardImage
-                            fluid
-                            className="align-self-center rounded"
-                            src={`${imagesUrl + usr.Image}`}
-                            width="450"
-                            height="500"
-                          />
-                        </div>
-                      </div>
-                    </MDBCardBody>
-                    <MDBCardFooter className="p-4">
-                      <Button className="left" variant="outline-success">
-                        Ordenar por ${usr.Price}!!
-                      </Button>
-                    </MDBCardFooter>
-                  </MDBCard>
-                </MDBCol>
-              </MDBRow>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
-  );
+                  {/* <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button> */}
+                </MDBCardFooter>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </section>
+    );
+  }
 }
