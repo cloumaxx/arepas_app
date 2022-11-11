@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
 import {imagesUrl,Orders} from '../conexiones/urls';
 import Pagination from 'react-bootstrap/Pagination';
-import {Link } from "react-router-dom";
 import '../components/Menu.css'
 
 
@@ -103,8 +102,8 @@ export function Menu(props) {
       <Row xs={3} md={3} className="g-4">
         {data.map(usr => (
           <Col>
-            <Container>
-              <Card>
+            <container fluid>
+              <Card >
                 <Card.Img variant="top" src={`${imagesUrl+usr.Image}`} className="img-thumbnail" />
                 <Card.Body>
                   <Card.Title>{usr.Name}</Card.Title>
@@ -142,8 +141,9 @@ export function Menu(props) {
                 </Modal>
                 <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
                 </Card.Footer>
+                <a href="/Details" class="stretched-link"></a>
               </Card>
-            </Container>
+            </container>
           </Col>
         ))}
       </Row>
