@@ -5,14 +5,15 @@ import { Button, Container, Form ,Card,Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
-import {baseUrl,imagesUrl,Orders} from '../conexiones/urls';
+import {imagesUrl,Orders} from '../conexiones/urls';
 import Pagination from 'react-bootstrap/Pagination';
+import {Link } from "react-router-dom";
 import '../components/Menu.css'
 
 
-export function Menu() {
+export function Menu(props) {
 
-  let header = fetch( baseUrl ).then( response => response.headers.get( "Link" ) ).then(function parseLinkHeader( linkHeader ) {
+  let header = fetch( props.baseUrl ).then( response => response.headers.get( "Link" ) ).then(function parseLinkHeader( linkHeader ) {
     const linkHeadersArray = linkHeader.split( ", " ).map( header => header.split( "; " ) );
     const linkHeadersMap = linkHeadersArray.map( header => {
        const thisHeaderRel = header[1].replace( /"/g, "" ).replace( "rel=", "" );
@@ -24,10 +25,10 @@ export function Menu() {
 
 
 
-  const [data, setData] = useState([]);
+  let [data, setData] = useState([]);
 
-  const GetUsers = async () => {
-    await axios.get(baseUrl)
+  let GetUsers = () => {
+     axios.get(props.baseUrl)
       .then(response => {
         setData(response.data);
       }).catch(error => {
@@ -35,7 +36,7 @@ export function Menu() {
       })
   }
 
-  const [currentUser, setCurrentUser] = useState({
+  let [currentUser, setCurrentUser] = useState({
     id: '',
     Name: '',
     Description: '',
@@ -44,12 +45,12 @@ export function Menu() {
   });
 
   // Crear orden
-  const [showModalCreate, setShowModalCreate] = useState(false);
-  const openCloseModalCreate = () => {
+  let [showModalCreate, setShowModalCreate] = useState(false);
+  let openCloseModalCreate = () => {
     setShowModalCreate(!showModalCreate);
   }
 
-  const postUser = async () => {
+  let postUser = async () => {
     delete currentUser.id;
     await axios.post(Orders, currentUser)
       .then(response => {
@@ -60,8 +61,8 @@ export function Menu() {
       })
   }
 
-  const handleChange = e => {
-    const { name, value } = e.target;
+  let handleChange = e => {
+    let { name, value } = e.target;
     setCurrentUser({
       ...currentUser,
       [name]: value
@@ -147,9 +148,9 @@ export function Menu() {
         ))}
       </Row>
       <Pagination>
-      <Pagination.Prev />
+      <Pagination.Prev/>
       <Pagination.Item 
-      onClickCapture={()=>
+      onClick={()=>
       {header.then(function(result) {
         console.log(result.first);
         console.log(result.next);
