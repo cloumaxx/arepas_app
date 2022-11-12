@@ -1,10 +1,14 @@
 import axios from 'axios';
-import { FontAwesomeIcon as Fas } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { Button, Container, Table, Form } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Navbar from 'react-bootstrap/Navbar';
 import './Menu.css'
+import '../components/Menu.css'
 
 export function Menu() {
   const baseUrl = "http://localhost:3000/arepas";
@@ -55,107 +59,50 @@ export function Menu() {
     })
   }
 
-  // Update
-  const [showModalUpdate, setShowModalUpdate] = useState(false);
-  const openCloseModalUpdate = () => {
-    setShowModalUpdate(!showModalUpdate);
-  }
-
-  const selectCurrentUser = (user, action) => {
-    setCurrentUser(user);
-    switch (action) {
-      case "Edit":
-        openCloseModalUpdate();
-        break;
-      case "Details":
-        openCloseModalDetails();
-        break;
-      case "Delete":
-        openCloseModalDelete();
-        break;
-      default:
-        break;
-    }
-  }
-
-  const putUser = async () => {
-    await axios.put(baseUrl + "/" + currentUser.id, currentUser)
-      .then(response => {
-        var result = response.data;
-        var updatedData = data;
-        updatedData.map(usr => {
-          if (usr.id === currentUser.id) {
-            usr.Name = result.email;
-            usr.Description = result.name;
-            usr.Price = result.username;
-            usr.Image = result.password;
-          }
-        });
-        GetUsers();
-        openCloseModalUpdate();
-      }).catch(error => {
-        console.log(error);
-      })
-  }
-
-  // Details
-  const [showModalDetails, setShowModalDetails] = useState(false);
-  const openCloseModalDetails = () => {
-    setShowModalDetails(!showModalDetails);
-  }
-
-  // Delete
-  const [showModalDelete, setShowModalDelete] = useState(false);
-  const openCloseModalDelete = () => {
-    setShowModalDelete(!showModalDelete);
-  }
-
-  const deleteUser = async () => {
-    await axios.delete(baseUrl + "/" + currentUser.id)
-      .then(() => {
-        setData(data.filter(usr => usr.id !== currentUser.id));
-        openCloseModalDelete();
-      }).catch(error => {
-        console.log(error);
-      })
-  }
-
   useEffect(() => {
     GetUsers();
   }, []);
 
 
   return (
-    <Container className="text-center text-md-left text-light">
-      <h1 className='letrica'>Arepas Venezolanas!!!</h1>
-      <Table id="ArepasTable">
-        <thead>
-          <tr className='text-light letrica'>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(usr => (
-            <tr key={usr.id}>
-              {/* <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Con-Chorizo.jpg" className='img-thumbnail' alt="car" />
-                  <div class="card-body">
-                    <h5 class="card-title">{usr.Name}</h5>
-                    <p class="card-text">{usr.Description}</p>
-                    <p className='card-text'>{usr.Price}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-              </div> */}
-              <td className='letrica text-secondary'>{usr.Name}</td>
-              <td className='letrica text-secondary'>{usr.Description}</td>
-              <td className='letrica text-secondary'>{usr.Price}</td>
-              <img src={`${usr.Image}`} className='col-md-4 img-thumbnail mt-3 mb-3' alt="car" />
-              <td>
+    <Container fluid>
+      <h1 className='letrica text-white'>!!!Arepas!!!</h1>
+      <div className='border-bottom border border-white mx-auto'></div>
+      <div className='pt-3'>
+      <Navbar expand="lg" bg="dark" variant="dark" className='rounded'>
+          <Container>
+            <Navbar.Brand href="#">
+              <NavDropdown title="Elije tu tipo de Arepa" id="navbarScrollingDropdown" className='text-white'>
+                <NavDropdown.Item href="#action3">Sin carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con carne</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">con queso</NavDropdown.Item>
+              </NavDropdown>
+            </Navbar.Brand>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Container>
+        </Navbar>
+      </div>
+      <Row xs={3} md={3} className="g-4">
+        {data.map(usr => (
+          <Col>
+            <Container>
+              <Card>
+                <Card.Img variant="top" src={`${usr.Image}`} className="img-thumbnail" />
+                <Card.Body>
+                  <Card.Title>{usr.Name}</Card.Title>
+                  <Card.Text>
+                    {usr.Description}
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
                 <Modal isOpen={showModalCreate}>
                   <ModalHeader>Brindanos tus Datos!!</ModalHeader>
                   <ModalBody>
@@ -183,12 +130,13 @@ export function Menu() {
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>
-                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}> <Fas icon={faPlus} />Ordenar!!</Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
+                </Card.Footer>
+              </Card>
+            </Container>
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 }

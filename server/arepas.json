@@ -69,17 +69,6 @@
       "Description": "Deliciosa arepa sencilla",
       "Price": "700",
       "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Sencilla.jpg"
-    },
-    {
-      "Name": "",
-      "Description": "",
-      "Price": "",
-      "Image": "",
-      "email": "asdasd",
-      "name": "asdasd",
-      "username": "asdasd",
-      "password": "asdasd",
-      "id": 11
     }
   ],
   "usuarios": [
@@ -126,6 +115,39 @@
       "Address": "asdasd",
       "PhoneNumber": "123123",
       "id": 4
+    },
+    {
+      "Email": "piso@gamail.com",
+      "Password": "12345",
+      "FirstName": "piso",
+      "LastName": "gmail",
+      "BirthofDate": "2020-06-09",
+      "RegisterDate": "",
+      "Address": "cra34#12-99",
+      "PhoneNumber": "3213425678",
+      "id": 5
+    },
+    {
+      "Email": "k@gmail.com",
+      "Password": "09876",
+      "FirstName": "kawasaky",
+      "LastName": "zuzuki",
+      "BirthofDate": "2018-07-06",
+      "RegisterDate": "2022-11-08",
+      "Address": "cr17 #54-98",
+      "PhoneNumber": "3213456798",
+      "id": 6
+    },
+    {
+      "Email": "m@gmail.com",
+      "Password": "12345",
+      "FirstName": "julio",
+      "LastName": "robles",
+      "BirthofDate": "2016-06-16",
+      "RegisterDate": "2022-11-08",
+      "Address": "cra 34 # 34-12",
+      "PhoneNumber": "3211234353",
+      "id": 7
     }
   ],
   "Orders": [
@@ -140,7 +162,7 @@
       "DeliveryFirstName": "",
       "DeliveryLastName": ""
     }
-      ],
+  ],
   "OrderDetails": [
     {
       "id": 1,
