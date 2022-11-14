@@ -6,7 +6,7 @@
       "Name": "Arepa con chorizo",
       "Description": "Arepa acompañada con chorizo de res",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Con-Chorizo.jpg",
+      "Image": "/Arepa-Con-Chorizo.jpg",
       "IngreArepaChorizo" :["Arepa", "Chorizo"],
       "Historia": "Esta deliciosa arepa viene acompañada de un exquisito chorizo de su res"
     },
@@ -15,7 +15,7 @@
       "Name": "Arepa con carne",
       "Description": "Arepa con carne de res",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Carne.jpg",
+      "Image": "/Arepa-Rellena-Carne.jpg",
       "IngreArepaCarne" :["Arepa", "Carne"],
       "Historia": "Esta deliciosa arepa viene rellena con una exquisita carne de res recien asada a la parrilla"
     },
@@ -24,7 +24,7 @@
       "Name": "Arepa con todo",
       "Description": "Arepa con carne, pollo, chocharrón, huevo y salsas de la casa",
       "Price": "7000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Con-Todo.jpg",
+      "Image": "/Arepa-Rellena-Con-Todo.jpg",
       "IngreArepaTodo" :["Arepa", "Carne","Pollo","Chicharrón","Huevo"],
       "Historia": "Esta deliciosa arepa viene acompañada con un exquisito relleno de carne, pollo, chicharron, huevo y las salsas al gusto"
     },
@@ -33,7 +33,7 @@
       "Name": "Arepa con queso cuajada",
       "Description": "Arepa con un queso cuajada",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso-Cuajada.jpg",
+      "Image": "/Arepa-Rellena-de-Queso-Cuajada.jpg",
       "IngreArepaQuesocuajada" :["Arepa", "Queso cuajada"],
       "Historia": "Esta deliciosa arepa viene acompañada de un exquisito queso cuajada en su parte superior"
     },
@@ -42,7 +42,7 @@
       "Name": "Arepa con queso ",
       "Description": "Arepa con un queso tajado",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso.jpg",
+      "Image": "/Arepa-Rellena-de-Queso.jpg",
       "IngreArepaQueso" :["Arepa", "Queso tajado"],
       "Historia": "Esta deliciosa arepa viene acompañada con un queso tajado que se derrite y sale por sus bordes"
     },
@@ -51,7 +51,7 @@
       "Name": "Arepa con huevos revueltos ",
       "Description": "Arepa rellena de huevos revueltos",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Huevos-Revueltos.jpg",
+      "Image": "/Arepa-Rellena-Huevos-Revueltos.jpg",
       "IngreArepaHuevo" :["Arepa", "Huevos revueltos"],
       "Historia": "Esta deliciosa arepa viene rellena de huevos revueltos recien preparados para cualquier ocasión"
     },
@@ -60,7 +60,7 @@
       "Name": "Arepa con jamon y queso ",
       "Description": "Arepa rellena con jamón y queso",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Jamon-Queso.jpg",
+      "Image": "/Arepa-Rellena-Jamon-Queso.jpg",
       "IngreArepaJamonQuesoe" :["Arepa", "Jamón","Queso"],
       "Historia": "Esta deliciosa arepa viene Rellena con jamon y queso los cuales hacen una combinacion espectacular"
     },
@@ -69,7 +69,7 @@
       "Name": "Arepa con pollo ",
       "Description": "Arepa rellena con pollo",
       "Price": "3500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Pollo.jpg",
+      "Image": "/Arepa-Rellena-Pollo.jpg",
       "IngreArepaPollo" :["Arepa", "Pollo"],
       "Historia": "Esta deliciosa arepa viene rellena con pollo desmechado el cual es exquisito tambien"
     },
@@ -78,7 +78,7 @@
       "Name": "Arepa con salchicha ",
       "Description": "Arepa rellena de salchicha ranchera",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Salchicha-Ranchera.png",
+      "Image": "/Arepa-Rellena-Salchicha-Ranchera.png",
       "IngreArepaSalchicha" :["Arepa", "Salchicha"],
       "Historia": "Esta deliciosa arepa viene rellena de trozos de salchichas rancheras las cuales hacen un contrase de sabor increible"
     },
@@ -87,7 +87,7 @@
       "Name": "Arepa sencilla ",
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
-      "Image": "arepas-app/src/imagenes/Arepa-Sencilla.jpg",
+      "Image": "/imagenes/Arepa-Sencilla.jpg",
       "IngreArepaSencilla" :["Arepa", "Mantequilla"],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     }
