@@ -92,72 +92,6 @@
       "RegisterDate": "22/12/2001",
       "Address": "cll 3d #2-12",
       "PhoneNumber": "12312412"
-    },
-    {
-      "Email": "q@hotmial.com",
-      "Password": "dasdsa",
-      "FirstName": "xd",
-      "LastName": "xd",
-      "BirthofDate": "2022-11-07",
-      "RegisterDate": "2022-11-08",
-      "Address": "xd",
-      "PhoneNumber": "12312312",
-      "id": 2
-    },
-    {
-      "Email": "",
-      "Password": "",
-      "FirstName": "",
-      "LastName": "",
-      "BirthofDate": "",
-      "RegisterDate": "",
-      "Address": "",
-      "PhoneNumber": "",
-      "id": 3
-    },
-    {
-      "Email": "xd@hotmail.com",
-      "Password": "asdasd",
-      "FirstName": "asdasd",
-      "LastName": "asdasd",
-      "BirthofDate": "2022-11-02",
-      "RegisterDate": "",
-      "Address": "asdasd",
-      "PhoneNumber": "123123",
-      "id": 4
-    },
-    {
-      "Email": "piso@gamail.com",
-      "Password": "12345",
-      "FirstName": "piso",
-      "LastName": "gmail",
-      "BirthofDate": "2020-06-09",
-      "RegisterDate": "",
-      "Address": "cra34#12-99",
-      "PhoneNumber": "3213425678",
-      "id": 5
-    },
-    {
-      "Email": "k@gmail.com",
-      "Password": "09876",
-      "FirstName": "kawasaky",
-      "LastName": "zuzuki",
-      "BirthofDate": "2018-07-06",
-      "RegisterDate": "2022-11-08",
-      "Address": "cr17 #54-98",
-      "PhoneNumber": "3213456798",
-      "id": 6
-    },
-    {
-      "Email": "m@gmail.com",
-      "Password": "12345",
-      "FirstName": "julio",
-      "LastName": "robles",
-      "BirthofDate": "2016-06-16",
-      "RegisterDate": "2022-11-08",
-      "Address": "cra 34 # 34-12",
-      "PhoneNumber": "3211234353",
-      "id": 7
     }
   ],
   "Orders": [
@@ -184,13 +118,6 @@
   "OrderDetails": [],
   "orderitem": [
     {
-      "Name": "Arepa con chorizo",
-      "Price": "2500",
-      "qty": 1,
-      "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Con-Chorizo.jpg",
-      "id": 1
-    },
-    {
       "Name": "Arepa con carne",
       "Price": "2500",
       "qty": 2,
@@ -198,10 +125,10 @@
       "id": 2
     },
     {
-      "Name": "Arepa con todo",
-      "Price": "7000",
-      "qty": 2,
-      "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Rellena-Con-Todo.jpg",
+      "Name": "Arepa con chorizo",
+      "Price": "2500",
+      "qty": 3,
+      "Image": "https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Con-Chorizo.jpg",
       "id": 3
     }
   ]
