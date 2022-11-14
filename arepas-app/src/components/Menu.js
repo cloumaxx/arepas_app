@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { Button, Container, Table, Form } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
@@ -10,10 +10,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import './Menu.css'
 import '../components/Menu.css'
 
-export function Menu() {
+
+export function Menu(props) {
   const baseUrl = "http://localhost:3000/arepas";
   const Orders = "http://localhost:3000/Orders";
   const OrdersDetails = "http://localhost:3000/OrderDetails";
+  let qty =1;
+  
+
 
   const [data, setData] = useState([]);
 
@@ -31,6 +35,7 @@ export function Menu() {
     Name: '',
     Description: '',
     Price: '',
+    qty:'',
     Image: ''
   });
 
@@ -62,6 +67,73 @@ export function Menu() {
   useEffect(() => {
     GetUsers();
   }, []);
+
+  const addItem = async(a,b,c)=>{
+    let isExisting = false;
+    const result = await axios.get("http://localhost:3000/orderitem");
+    if (result.data.length === 0){
+      const order = { Name:a, Price:b,qty:qty, Image:c};
+      axios.post("http://localhost:3000/orderitem",order);
+    }
+    else{
+      result.data.map((orderItem)=>{
+        if(a=== orderItem.Name){
+          orderItem.qty +=1;
+          const order={
+            Name:a,
+            Price:b,
+            qty:orderItem.qty,
+            Image:c,
+          };
+          axios.put("http://localhost:3000/orderitem/"+ orderItem.id,order);
+          isExisting = true;
+        }
+      });
+      if(isExisting == false){
+        const order = {
+          Name:a,
+          Price:b,
+          qty:qty,
+          Image:c,
+        };
+        axios.post("http://localhost:3000/orderitem",order)
+      }
+    }
+  };
+
+  const DeleteItem = async(a,b,c)=>{
+    let isExisting = false;
+    const result = await axios.get("http://localhost:3000/orderitem");
+    if (result.data.length === 0){
+      const order = { Name:a, Price:b,qty:qty,Image:c};
+      axios.post("http://localhost:3000/orderitem",order);
+    }
+    else{
+      result.data.map((orderItem)=>{
+        if(a=== orderItem.Name){
+          orderItem.qty -=1;
+          const order={
+            Name:a,
+            Price:b,
+            qty:orderItem.qty,
+            Image:c,
+          };
+          axios.put("http://localhost:3000/orderitem/"+ orderItem.id,order);
+          isExisting = true;
+        }
+      });
+      if(isExisting == false){
+        const order = {
+          Name:a,
+          Price:b,
+          qty:qty,
+          Image:c,
+        };
+        axios.post("http://localhost:3000/orderitem",order)
+      }
+    }
+  };
+
 
 
   return (
@@ -130,7 +202,8 @@ export function Menu() {
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>
-                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
+                <Button className="btn-danger" onClick={() => DeleteItem(usr.Name,usr.Price,usr.Image)} >eliminar!!</Button>
+                <Button className="add-btn" onClick={() => addItem(usr.Name,usr.Price,usr.Image)} >añadir por ${usr.Price}!!</Button>
                 </Card.Footer>
               </Card>
             </Container>

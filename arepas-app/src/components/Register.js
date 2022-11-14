@@ -60,34 +60,28 @@ export const Register = () => {
         <div className='d-flex justify-content-start text-light letrica'>
           <Form.Label>Nombre</Form.Label>
         </div>
-        <input placeholder='Su Nombre' type="name" class="form-control" id="exampleFormControlInput1" value={fromData.FirstName} onChange={(e) => setFormData({ ...fromData, FirstName: e.target.value })} />
+        <input placeholder='su Nombre' type="name" class="form-control" id="exampleFormControlInput1" value={fromData.FirstName} onChange={(e) => setFormData({ ...fromData, FirstName: e.target.value })} />
 
         <div className='d-flex justify-content-start text-light letrica'>
           <Form.Label>Apellido</Form.Label>
         </div>
-        <input placeholder='Su Apellido' type="name" class="form-control" id="exampleFormControlInput1" value={fromData.LastName} onChange={(e) => setFormData({ ...fromData, LastName: e.target.value })} />
+        <input placeholder='su Apellido' type="name" class="form-control" id="exampleFormControlInput1" value={fromData.LastName} onChange={(e) => setFormData({ ...fromData, LastName: e.target.value })} />
 
         <div className='d-flex justify-content-start text-light letrica'>
           <Form.Label>Fecha de Nacimiento</Form.Label>
         </div>
-        <input placeholder='Su fecha de nacimiento' type="date" class="form-control" id="exampleFormControlInput1" value={fromData.BirthofDate} onChange={(e) => setFormData({ ...fromData, BirthofDate: e.target.value })} />
-
-
-        <div className='d-flex justify-content-start text-light letrica'>
-          <Form.Label>Fecha de Registro</Form.Label>
-        </div>
-        <input placeholder='Su fecha de Registro' type="date" class="form-control" id="exampleFormControlInput1" value={fromData.RegisterDate} onChange={(e) => setFormData({ ...fromData, RegisterDate: e.target.value })} />
+        <input placeholder='su fecha de nacimiento' type="date" class="form-control" id="exampleFormControlInput1" value={fromData.BirthofDate} onChange={(e) => setFormData({ ...fromData, BirthofDate: e.target.value })} />
 
         
         <div className='d-flex justify-content-start text-light letrica'>
           <Form.Label>Direcion</Form.Label>
         </div>
-        <input placeholder='Su direccion' type="Address" class="form-control" id="exampleFormControlInput1" value={fromData.Address} onChange={(e) => setFormData({ ...fromData, Address: e.target.value })} />
+        <input placeholder='su direcion' type="Address" class="form-control" id="exampleFormControlInput1" value={fromData.Address} onChange={(e) => setFormData({ ...fromData, Address: e.target.value })} />
 
         <div className='d-flex justify-content-start text-light letrica'>
           <Form.Label>Telefono</Form.Label>
         </div>
-        <input placeholder='Su telefono' type="phone" class="form-control" id="exampleFormControlInput1" value={fromData.PhoneNumber} onChange={(e) => setFormData({ ...fromData, PhoneNumber: e.target.value })} />
+        <input placeholder='su telefono' type="phone" class="form-control" id="exampleFormControlInput1" value={fromData.PhoneNumber} onChange={(e) => setFormData({ ...fromData, PhoneNumber: e.target.value })} />
 
 
         <div class="mb-3">

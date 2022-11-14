@@ -1,5 +1,6 @@
+
 import './App.css';
-import NavigationBar  from './components/NavBar';
+import { NavigationBar } from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Menu } from './components/Menu';
@@ -8,6 +9,7 @@ import { Register } from './components/Register';
 import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
+import OrderCart from './components/OrderCart';
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
                 <Route exact path="/" element={<Menu />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
+                <Route path="/OrderCart" element={<OrderCart />} />
               </Routes>
             </Router>
           </Layout>
