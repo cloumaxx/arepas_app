@@ -10,6 +10,7 @@ import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import OrderCart from './components/OrderCart';
+import { Details } from './components/Details';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/OrderCart" element={<OrderCart />} />
+                <Route path="/Details" element={<Details />} />
               </Routes>
             </Router>
           </Layout>
