@@ -107,13 +107,13 @@ export function Menu(props) {
               <Card >
               <Link to="/Details" state={{ Id: usr.id }}>
                 <Card.Img variant="top" src={`${imagesUrl+usr.Image}`} className="img-thumbnail" />
-                <Card.Body>
+                </Link>
+                <Card.Body className='description'>
                   <Card.Title>{usr.Name}</Card.Title>
                   <Card.Text>
                     {usr.Description}
                   </Card.Text>
-                </Card.Body>
-                </Link>  
+                </Card.Body>  
                 <Card.Footer>
                 <Modal isOpen={showModalCreate}>
                   <ModalHeader>Brindanos tus Datos!!</ModalHeader>
