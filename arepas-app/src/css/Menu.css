@@ -16,3 +16,19 @@
     font-family: 'Sedgwick Ave Display';
 }
 
+.img-thumbnail{
+    height: 15em;
+<<<<<<< Updated upstream
+
+}
+=======
+}
+.description{
+    height: 50px;
+    overflow: hidden;
+    transition: height .3s ease-in .3s;
+  }
+  .description:hover{
+    height: 8em;
+  }
+>>>>>>> Stashed changes
