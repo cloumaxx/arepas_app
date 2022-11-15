@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import { Button} from 'react-bootstrap';
 import {
   MDBCard,
   MDBCardBody,
@@ -10,7 +11,9 @@ import {
   MDBIcon,
   MDBRow,
   MDBTypography,
+  MDBBtn,
 } from "mdb-react-ui-kit";
+
 
 export class Details extends Component {
 
@@ -45,59 +48,53 @@ export class Details extends Component {
                 className="card-stepper"
                 style={{ borderRadius: "16px" }}
               >
+              
                 <MDBCardHeader className="p-4">
                   <div className="d-flex justify-content-between align-items-center">
                     <div>
-                      <p className="text-muted mb-2">
-                        {" "}
-                        Nombre Arepa{" "}
-                        <span className="fw-bold text-body">xd</span>
-                      </p>
+                    
+                    <button type="button" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                fill="currentColor" 
+                class="bi bi-arrow-left-square-fill" 
+                viewBox="0 0 16 16"
+                href="http://localhost:3001/">
+  <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"></path>
+</svg>
+                    </button>
+
                     </div>
                   </div>
                 </MDBCardHeader>
                 <MDBCardBody className="p-4">
                   <div className="d-flex flex-row mb-4 pb-2">
                     <div className="flex-fill">
-                      <MDBTypography tag="h5" className="bold">
-                        Headphones Bose 35 II
-                      </MDBTypography>
-                      <p className="text-muted"> Qt: 1 item</p>
+                      <MDBTypography tag="h5" className="bold"> (Name)Arepa con Carne</MDBTypography>
+                      <p className="text-muted"> (Description)Arepa acompañada con chorizo de res</p>
+                      <p className="text-muted">
+                        Descripsion:{" "}
+                        <span className="text-body">(Historia) Esta deliciosa arepa viene acompañada de un exquisito chorizo de su res</span>
+                      </p>
                       <MDBTypography tag="h4" className="mb-3">
                         {" "}
-                        $ 299{" "}
-                        <span className="small text-muted"> via (COD) </span>
+                        $ 2500 (precio){" "}
                       </MDBTypography>
-                      <p className="text-muted">
-                        Tracking Status on:{" "}
-                        <span className="text-body">11:30pm, Today</span>
-                      </p>
                     </div>
                     <div>
                       <MDBCardImage
                         fluid
-                        className="align-self-center"
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
-                        width="250"
+                        className="align-self-center rounded"
+                        src="https://raw.githubusercontent.com/Jucer74/WebDevelopment/main/Proyecto/ImageProducts/Arepa-Con-Chorizo.jpg"
+                        width="450"
+                        height="500"
                       />
                     </div>
                   </div>
-                  <ul
-                    id="progressbar-1"
-                    className="mx-0 mt-0 mb-5 px-0 pt-0 pb-4"
-                  >
-                    <li className="step0 active" id="step1">
-                      <span style={{ marginLeft: "22px", marginTop: "12px" }}>
-                        PLACED
-                      </span>
-                    </li>
-                    <li className="step0 active text-center" id="step2">
-                      <span>SHIPPED</span>
-                    </li>
-                    <li className="step0 text-muted text-end" id="step3">
-                      <span style={{ marginRight: "22px" }}>DELIVERED</span>
-                    </li>
-                  </ul>
+                  <div>
+                  <Button variant="outline-success">Ordenar</Button>
+                  </div>
                 </MDBCardBody>
                 <MDBCardFooter className="p-4">
 
