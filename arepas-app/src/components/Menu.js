@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
 import {imagesUrl,Orders} from '../conexiones/urls';
 import Pagination from 'react-bootstrap/Pagination';
+import {Link} from "react-router-dom";
 import '../components/Menu.css'
 
 
@@ -80,11 +81,11 @@ export function Menu(props) {
       <div className='pt-3'>
       <Navbar expand="lg" bg="dark" variant="dark" className='rounded'>
           <Container>
-            <Navbar.Brand href="#">
+            <Navbar.Brand to="#">
               <NavDropdown title="Elije tu tipo de Arepa" id="navbarScrollingDropdown" className='text-white'>
-                <NavDropdown.Item href="#action3">Sin carne</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">con carne</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">con queso</NavDropdown.Item>
+                <NavDropdown.Item to="#action3">Sin carne</NavDropdown.Item>
+                <NavDropdown.Item to="#action4">con carne</NavDropdown.Item>
+                <NavDropdown.Item to="#action4">con queso</NavDropdown.Item>
               </NavDropdown>
             </Navbar.Brand>
             <Form className="d-flex">
@@ -101,9 +102,10 @@ export function Menu(props) {
       </div>
       <Row xs={3} md={3} className="g-4">
         {data.map(usr => (
-          <Col>
-            <container fluid>
+          <Col key={usr.id}>
+            <Container >
               <Card >
+              <Link to="/Details" state={{ Id: usr.id }}>
                 <Card.Img variant="top" src={`${imagesUrl+usr.Image}`} className="img-thumbnail" />
                 <Card.Body>
                   <Card.Title>{usr.Name}</Card.Title>
@@ -111,6 +113,7 @@ export function Menu(props) {
                     {usr.Description}
                   </Card.Text>
                 </Card.Body>
+                </Link>  
                 <Card.Footer>
                 <Modal isOpen={showModalCreate}>
                   <ModalHeader>Brindanos tus Datos!!</ModalHeader>
@@ -140,10 +143,9 @@ export function Menu(props) {
                   </ModalFooter>
                 </Modal>
                 <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
-                </Card.Footer>
-                <a href="/Details" class="stretched-link"></a>
-              </Card>
-            </container>
+                </Card.Footer>      
+              </Card>            
+            </Container>
           </Col>
         ))}
       </Row>
