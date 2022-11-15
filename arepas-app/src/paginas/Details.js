@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, Container, Table } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
@@ -11,7 +11,8 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import { imagesUrl, Orders } from "../conexiones/urls";
+import { imagesUrl } from "../conexiones/urls";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export function Details(props) {
   const location = useLocation();
@@ -35,6 +36,15 @@ export function Details(props) {
     GetUsers();
   }, []);
 
+  function RenderIngredientes(ingredientes) {
+    console.log(ingredientes);
+    const ingredientesList = [];
+    for (let i = 0; i < ingredientes.length; i++) {
+      ingredientesList.push(<ListGroup.Item key={"ingrediente"+i}>{ingredientes[i]}</ListGroup.Item>);
+    }
+    return ingredientesList;
+  }
+
   return (
     <Container className="text-center text-md-left">
       <h1 className="letrica text-white">!!!Arepas!!!</h1>
@@ -45,7 +55,7 @@ export function Details(props) {
           {data.map((usr) => (
             <tr key={usr.id}>
               <MDBRow className="justify-content-center align-items-center h-100">
-                <MDBCol md="10" lg="8" xl="6">
+                <MDBCol md="10" lg="8" xl="6" >
                   <MDBCard
                     className="card-stepper"
                     style={{ borderRadius: "16px" }}
@@ -59,6 +69,19 @@ export function Details(props) {
                           <p className="text-muted">
                             <span className="text-body">{usr.Description}</span>
                           </p>
+                          <MDBTypography tag="h5" className="bold">
+                            un poco de Historia:
+                          </MDBTypography>
+                          <p className="text-muted">
+                            <span className="text-body">{usr.Historia}</span>
+                          </p>
+
+                          <MDBTypography tag="h5" className="bold">
+                            Ingredintes:
+                          </MDBTypography>
+
+                          <div>{RenderIngredientes(usr.IngreArepa)}</div>
+
                           <MDBTypography tag="h4" className="mb-3">
                             Precio: {usr.Price}
                           </MDBTypography>
