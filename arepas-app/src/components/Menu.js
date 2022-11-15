@@ -135,7 +135,7 @@ export function Menu(props) {
                     </Form>
                   </ModalBody>
                   <ModalFooter>
-                    <Button variant="primary" onClick={() => postUser()}>Llevlo a mi casa chamo!!</Button>
+                    <Button variant="primary" onClick={() => postUser()}>Llevalo a mi casa!!</Button>
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>

@@ -65,6 +65,7 @@ class Login extends Component {
         <div className='pt-3'></div>
         <div className='border-bottom border border-white mx-auto'></div>
 
+
         <Form.Group className="form-group mt-3" controlId="formBasicEmail">
 
           <div className='justify-content-start text-light letrica'>
@@ -73,11 +74,13 @@ class Login extends Component {
      
           <input
             type="text"
-            className="form-control-lg"
+            className="form-control-lg "
             name="Email"
             onChange={this.handleChange}
             placeholder="ingrese su correo"
+            size={25}
           />
+        
           <p></p>
   <div className='justify-content-start text-light letrica'>
           <h4 className="center">Contraseña</h4>
@@ -88,6 +91,7 @@ class Login extends Component {
             name="Password"
             onChange={this.handleChange}
             placeholder="ingrese su contraseña"
+            size={25}
           />
           <br />
           <p></p>
