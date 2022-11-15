@@ -168,7 +168,7 @@ export function Menu(props) {
             <Container>
               <Card>
                 <Card.Img variant="top" src={`${usr.Image}`}  className="img-thumbnail" />
-                <Card.Body>
+                <Card.Body className='description' >
                   <Card.Title>{usr.Name}</Card.Title>
                   <Card.Text>
                     {usr.Description}

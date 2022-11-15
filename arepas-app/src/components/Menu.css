@@ -20,3 +20,11 @@
     height: 15em;
 
 }
+.description{
+    height: 50px;
+    overflow: hidden;
+    transition: height .3s ease-in .3s;
+  }
+  .description:hover{
+    height: 8em;
+  }
