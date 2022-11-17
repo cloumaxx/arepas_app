@@ -1,28 +1,34 @@
 import axios from 'axios';
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { Button, Container, Table, Form } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Button, Container, Form ,Card,Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
-import './Menu.css'
+import {imagesUrl,Orders} from '../conexiones/urls';
+import Pagination from 'react-bootstrap/Pagination';
+import {Link} from "react-router-dom";
 import '../components/Menu.css'
 
 
 export function Menu(props) {
-  const baseUrl = "http://localhost:3000/arepas";
-  const Orders = "http://localhost:3000/Orders";
-  const OrdersDetails = "http://localhost:3000/OrderDetails";
-  let qty =1;
-  
+
+  let header = fetch( props.baseUrl ).then( response => response.headers.get( "Link" ) ).then(function parseLinkHeader( linkHeader ) {
+    const linkHeadersArray = linkHeader.split( ", " ).map( header => header.split( "; " ) );
+    const linkHeadersMap = linkHeadersArray.map( header => {
+       const thisHeaderRel = header[1].replace( /"/g, "" ).replace( "rel=", "" );
+       const thisHeaderUrl = header[0].slice( 1, -1 );
+       return [ thisHeaderRel, thisHeaderUrl ]
+    } );
+    return Object.fromEntries( linkHeadersMap );
+ });
 
 
-  const [data, setData] = useState([]);
 
-  const GetUsers = async () => {
-    await axios.get(baseUrl)
+  let [data, setData] = useState([]);
+
+  let GetUsers = () => {
+     axios.get(props.baseUrl)
       .then(response => {
         setData(response.data);
       }).catch(error => {
@@ -30,22 +36,21 @@ export function Menu(props) {
       })
   }
 
-  const [currentUser, setCurrentUser] = useState({
+  let [currentUser, setCurrentUser] = useState({
     id: '',
     Name: '',
     Description: '',
     Price: '',
-    qty:'',
     Image: ''
   });
 
-  // Create 
-  const [showModalCreate, setShowModalCreate] = useState(false);
-  const openCloseModalCreate = () => {
+  // Crear orden
+  let [showModalCreate, setShowModalCreate] = useState(false);
+  let openCloseModalCreate = () => {
     setShowModalCreate(!showModalCreate);
   }
 
-  const postUser = async () => {
+  let postUser = async () => {
     delete currentUser.id;
     await axios.post(Orders, currentUser)
       .then(response => {
@@ -56,8 +61,8 @@ export function Menu(props) {
       })
   }
 
-  const handleChange = e => {
-    const { name, value } = e.target;
+  let handleChange = e => {
+    let { name, value } = e.target;
     setCurrentUser({
       ...currentUser,
       [name]: value
@@ -68,73 +73,6 @@ export function Menu(props) {
     GetUsers();
   }, []);
 
-  const addItem = async(a,b,c)=>{
-    let isExisting = false;
-    const result = await axios.get("http://localhost:3000/orderitem");
-    if (result.data.length === 0){
-      const order = { Name:a, Price:b,qty:qty, Image:c};
-      axios.post("http://localhost:3000/orderitem",order);
-    }
-    else{
-      result.data.map((orderItem)=>{
-        if(a=== orderItem.Name){
-          orderItem.qty +=1;
-          const order={
-            Name:a,
-            Price:b,
-            qty:orderItem.qty,
-            Image:c,
-          };
-          axios.put("http://localhost:3000/orderitem/"+ orderItem.id,order);
-          isExisting = true;
-        }
-      });
-      if(isExisting == false){
-        const order = {
-          Name:a,
-          Price:b,
-          qty:qty,
-          Image:c,
-        };
-        axios.post("http://localhost:3000/orderitem",order)
-      }
-    }
-  };
-
-  const DeleteItem = async(a,b,c)=>{
-    let isExisting = false;
-    const result = await axios.get("http://localhost:3000/orderitem");
-    if (result.data.length === 0){
-      const order = { Name:a, Price:b,qty:qty,Image:c};
-      axios.post("http://localhost:3000/orderitem",order);
-    }
-    else{
-      result.data.map((orderItem)=>{
-        if(a=== orderItem.Name){
-          orderItem.qty -=1;
-          const order={
-            Name:a,
-            Price:b,
-            qty:orderItem.qty,
-            Image:c,
-          };
-          axios.put("http://localhost:3000/orderitem/"+ orderItem.id,order);
-          isExisting = true;
-        }
-      });
-      if(isExisting == false){
-        const order = {
-          Name:a,
-          Price:b,
-          qty:qty,
-          Image:c,
-        };
-        axios.post("http://localhost:3000/orderitem",order)
-      }
-    }
-  };
-
-
 
   return (
     <Container fluid>
@@ -143,11 +81,11 @@ export function Menu(props) {
       <div className='pt-3'>
       <Navbar expand="lg" bg="dark" variant="dark" className='rounded'>
           <Container>
-            <Navbar.Brand href="#">
+            <Navbar.Brand to="#">
               <NavDropdown title="Elije tu tipo de Arepa" id="navbarScrollingDropdown" className='text-white'>
-                <NavDropdown.Item href="#action3">Sin carne</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">con carne</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">con queso</NavDropdown.Item>
+                <NavDropdown.Item to="#action3">Sin carne</NavDropdown.Item>
+                <NavDropdown.Item to="#action4">con carne</NavDropdown.Item>
+                <NavDropdown.Item to="#action4">con queso</NavDropdown.Item>
               </NavDropdown>
             </Navbar.Brand>
             <Form className="d-flex">
@@ -164,16 +102,18 @@ export function Menu(props) {
       </div>
       <Row xs={3} md={3} className="g-4">
         {data.map(usr => (
-          <Col>
-            <Container>
-              <Card>
-                <Card.Img variant="top" src={`${usr.Image}`}  className="img-thumbnail" />
-                <Card.Body className='description' >
+          <Col key={usr.id}>
+            <Container >
+              <Card >
+              <Link to="/Details" state={{ Id: usr.id }}>
+                <Card.Img variant="top" src={`${imagesUrl+usr.Image}`} className="img-thumbnail" />
+                </Link>
+                <Card.Body className='description'>
                   <Card.Title>{usr.Name}</Card.Title>
                   <Card.Text>
                     {usr.Description}
                   </Card.Text>
-                </Card.Body>
+                </Card.Body>  
                 <Card.Footer>
                 <Modal isOpen={showModalCreate}>
                   <ModalHeader>Brindanos tus Datos!!</ModalHeader>
@@ -202,14 +142,24 @@ export function Menu(props) {
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>
-                <Button className="btn-danger" onClick={() => DeleteItem(usr.Name,usr.Price,usr.Image)} >eliminar!!</Button>
-                <Button className="add-btn" onClick={() => addItem(usr.Name,usr.Price,usr.Image)} >añadir por ${usr.Price}!!</Button>
-                </Card.Footer>
-              </Card>
+                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
+                </Card.Footer>      
+              </Card>            
             </Container>
           </Col>
         ))}
       </Row>
+      <Pagination>
+      <Pagination.Prev/>
+      <Pagination.Item 
+      onClick={()=>
+      {header.then(function(result) {
+        console.log(result.first);
+        console.log(result.next);
+        console.log(result.last);
+      })}}>"Ultimo"</Pagination.Item>
+      <Pagination.Next />
+    </Pagination>
     </Container>
   );
 }

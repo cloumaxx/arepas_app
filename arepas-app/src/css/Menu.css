@@ -17,12 +17,10 @@
 }
 
 .img-thumbnail{
+  
     height: 15em;
-<<<<<<< Updated upstream
+}
 
-}
-=======
-}
 .description{
     height: 50px;
     overflow: hidden;
@@ -31,4 +29,28 @@
   .description:hover{
     height: 8em;
   }
->>>>>>> Stashed changes
+
+  /* --- formulario de contacto --- */
+.one-half,
+.one-third {
+    position: relative;
+    margin-right: 4%;
+    float: left;
+        margin-bottom: 20px;
+ 
+}
+ 
+.one-half { width: 48%; }
+.one-third { width: 30.66%; }
+ 
+.last {
+    margin-right: 0 !important;
+    clear: right;
+}
+ 
+@media only screen and (max-width: 767px) {
+    .one-half, .one-third {
+        width: 100%;
+        margin-right: 0;
+    }
+}

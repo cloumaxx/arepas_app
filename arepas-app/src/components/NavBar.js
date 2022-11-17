@@ -30,7 +30,7 @@ class NavigationBar extends Component {
       return (
         <Navbar className='navbar border border-white ' >
           <img src={logo} className="App-logo" alt='lol' />
-          <Navbar.Brand className='text-light letrica'>P&A</Navbar.Brand>
+          <Navbar.Brand className='text-light letrica'>Arepa-app</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className='me-auto' >
@@ -39,7 +39,6 @@ class NavigationBar extends Component {
             <Nav className="ms-auto">
               <Nav.Item ><Nav.Link className='text-light letrica' href="/Login">Login</Nav.Link></Nav.Item>
               <Nav.Item ><Nav.Link className='text-light letrica' href="./Register">Registrate</Nav.Link></Nav.Item>
-              <Nav.Item ><Nav.Link className='text-light letrica'href="./OrderCart">carro de compra</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar >
@@ -52,11 +51,10 @@ class NavigationBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className='me-auto' >
-              <Nav.Item><Nav.Link className='text-light letrica' href="/">Menu</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link className='text-light letrica' href="/"  >Menu</Nav.Link></Nav.Item>
             </Nav>
             <Nav className="ms-auto">
               <Nav.Item ><Nav.Link className='text-light letrica' href="./Register" onClick={() => this.cerrarSesion()}>Cerrar Sesión</Nav.Link></Nav.Item>
-              <Nav.Item ><Nav.Link className='text-light letrica'href="./OrderCart">carro de compra</Nav.Link></Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar >
