@@ -142,10 +142,8 @@ export function Menu(props) {
                     <Button variant="outline-info" onClick={() => openCloseModalCreate()}>Back</Button>
                   </ModalFooter>
                 </Modal>
-                <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
                 </Card.Footer>      
-              </Card>         
-                 
+              </Card>        
             </Container>
           </Col>
         ))}
@@ -163,16 +161,6 @@ export function Menu(props) {
       })}}>"Ultimo"</Pagination.Item>
       <Pagination.Next />
     </Pagination>
-    <FloatButton>
-    <div class="menu pmd-floating-action"  role="navigation"> 
-    <a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-title="Add" href="javascript:void(0);"> 
-		<span class="pmd-floating-hidden">Primary</span>
-		<i class="material-icons pmd-sm">add</i> 
-	</a> 
-
-    </div>
-    </FloatButton>
-    
     </Container>
   );
 }
