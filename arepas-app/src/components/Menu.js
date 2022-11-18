@@ -111,7 +111,7 @@ export function Menu(props) {
                 <Card.Body className='description'>
                   <Card.Title>{usr.Name}</Card.Title>
                   <Card.Text>
-                    {usr.Description}
+                    {usr.Historia}
                   </Card.Text>
                 </Card.Body>  
                 <Card.Footer>
@@ -144,11 +144,14 @@ export function Menu(props) {
                 </Modal>
                 <Button className="left" variant="outline-success" onClick={() => openCloseModalCreate()}>Ordenar por ${usr.Price}!!</Button>
                 </Card.Footer>      
-              </Card>            
+              </Card>         
+                 
             </Container>
           </Col>
         ))}
+        
       </Row>
+      
       <Pagination>
       <Pagination.Prev/>
       <Pagination.Item 
@@ -160,6 +163,16 @@ export function Menu(props) {
       })}}>"Ultimo"</Pagination.Item>
       <Pagination.Next />
     </Pagination>
+    <FloatButton>
+    <div class="menu pmd-floating-action"  role="navigation"> 
+    <a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-title="Add" href="javascript:void(0);"> 
+		<span class="pmd-floating-hidden">Primary</span>
+		<i class="material-icons pmd-sm">add</i> 
+	</a> 
+
+    </div>
+    </FloatButton>
+    
     </Container>
   );
 }
