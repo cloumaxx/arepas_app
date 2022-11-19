@@ -1,9 +1,9 @@
 import './App.css';
-import NavigationBar  from './components/NavBar';
+import NavigationBar  from './paginas/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import Login  from './components/Login';
-import { Register } from './components/Register';
+import Login  from './paginas/Login';
+import { Register } from './paginas/Register';
 import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
