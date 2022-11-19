@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import {baseUrl} from './conexiones/urls'
 import {Details} from './paginas/Details'
+import Menu2 from './paginas/Menu'
+
 function App() {
   return (
     <ThemeProvider
@@ -25,6 +27,7 @@ function App() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Details" element={<Details />} />
+                <Route path="/Menu2" element={<Menu2 />} />
                 <Route path="*" component={NotFound} />
               </Routes>
             </Router>
