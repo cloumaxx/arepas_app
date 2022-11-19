@@ -87,7 +87,7 @@
       "Name": "Arepa sencilla ",
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
-      "Image": "/imagenes/Arepa-Sencilla.jpg",
+      "Image": "/Arepa-Sencilla.jpg",
       "IngreArepa" :["Arepa", "Mantequilla"],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     }

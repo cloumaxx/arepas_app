@@ -40,7 +40,7 @@ class Login extends Component {
           cookies.set('nombre', respuesta.nombre, { path: "/" });
           cookies.set('username', respuesta.username, { path: "/" });
           alert(`Bienvenido ${respuesta.nombre} ${respuesta.username}`);
-          window.location.href = "./menu";
+          window.location.href = "./";
         } else {
           alert('El usuario o la contraseña no son correctos');
         }
@@ -53,7 +53,7 @@ class Login extends Component {
 
   componentDidMount() {
     if (cookies.get('username')) {
-      window.location.href = "./menu";
+      window.location.href = "./";
     }
   }
 

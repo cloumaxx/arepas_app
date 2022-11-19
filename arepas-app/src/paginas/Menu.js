@@ -8,11 +8,18 @@ import {
   MDBCol,
   MDBContainer,
   MDBBtn,
-  MDBBtnGroup,
   MDBPagination,
   MDBPaginationItem,
   MDBPaginationLink,
 } from "mdb-react-ui-kit";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { Button, Container, Form, Card, Col } from "react-bootstrap";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Row from "react-bootstrap/Row";
+import Navbar from "react-bootstrap/Navbar";
+import { imagesUrl, Orders } from "../conexiones/urls";
+import Pagination from "react-bootstrap/Pagination";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 function Menu2() {
@@ -23,8 +30,6 @@ function Menu2() {
   const [pageLimit] = useState(4);
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
-
-  const sortOptions = ["Name", "Description", "Price", "Image", "IngreArepa"];
 
   useEffect(() => {
     loadUsersData(0, 4, 0);
@@ -102,29 +107,6 @@ function Menu2() {
     //   .then((response) => {
     //     setData(response.data);
     //     setValue("");
-    //   })
-    //   .catch((err) => console.log(err));
-  };
-
-  const handleSort = async (e) => {
-    let value = e.target.value;
-    loadUsersData(0, 4, 0, "sort", value);
-    setSortValue(value);
-
-    // return await axios
-    //   .get(`http://localhost:5000/users?_sort=${value}&_order=asc`)
-    //   .then((response) => {
-    //     setData(response.data);
-    //   })
-    //   .catch((err) => console.log(err));
-  };
-
-  const handleFilter = async (value) => {
-    loadUsersData(0, 4, 0, "filter", value);
-    // return await axios
-    //   .get(`http://localhost:5000/users?status=${value}`)
-    //   .then((response) => {
-    //     setData(response.data);
     //   })
     //   .catch((err) => console.log(err));
   };
@@ -209,120 +191,75 @@ function Menu2() {
   };
 
   return (
-    <MDBContainer>
-      <form
+    <Container fluid>
+      <h1 className="letrica text-white">!!!Arepas!!!</h1>
+      <div className="border-bottom border border-white mx-auto"></div>
+      <div className="pt-3">
+        <Navbar expand="lg" bg="dark" variant="dark" className="rounded">
+          <Container>
+            <form
+              style={{
+                margin: "auto",
+                padding: "15px",
+                maxWidth: "400px",
+                alignContent: "center",
+              }}
+              className="d-flex input-group w-auto"
+              onSubmit={handleSearch}
+            >
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search Name ... "
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+
+              <MDBBtn type="submit" color="dark">
+                Search
+              </MDBBtn>
+            </form>
+          </Container>
+        </Navbar>
+      </div>
+      <Row xs={3} md={3} className="g-4">
+        {data.map((item) => (
+          <Col key={item.id}>
+            <Container>
+              <Card>
+                <Link to="/Details" state={{ Id: item.id }}>
+                  <Card.Img
+                    variant="top"
+                    src={`${imagesUrl + item.Image}`}
+                    className="img-thumbnail"
+                  />
+                </Link>
+                <Card.Body className="description">
+                  <Card.Title>{item.Name}</Card.Title>
+                  <Card.Text>{item.Description}</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Button className="left" variant="outline-success">
+                    Ordenar por ${item.Price}!!
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Container>
+          </Col>
+        ))}
+      </Row>
+
+      <div
         style={{
           margin: "auto",
           padding: "15px",
-          maxWidth: "400px",
+          maxWidth: "250px",
           alignContent: "center",
         }}
-        className="d-flex input-group w-auto"
-        onSubmit={handleSearch}
       >
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search Name ... "
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-
-        <MDBBtn type="submit" color="dark">
-          Search
-        </MDBBtn>
-        <MDBBtn className="mx-2" color="info" onClick={() => handleReset()}>
-          Reset
-        </MDBBtn>
-      </form>
-      <div style={{ marginTop: "100px" }}>
-        <h2 className="text-center">
-          Search, Filter, Sort and Pagination using JSON Fake Rest API
-        </h2>
-        <MDBRow>
-          <MDBCol size="12">
-            <MDBTable>
-              <MDBTableHead dark>
-                <tr>
-                  <th scope="col">No.</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone.</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </MDBTableHead>
-              {data.length === 0 ? (
-                <MDBTableBody className="align-center mb-0">
-                  <tr>
-                    <td colSpan={8} className="text-center mb-0">
-                      No Data Found
-                    </td>
-                  </tr>
-                </MDBTableBody>
-              ) : (
-                data.map((item, index) => (
-                  <MDBTableBody key={index}>
-                    <tr>
-                      <th scope="row">{index + 1}</th>
-                      <td>{item.Name}</td>
-                      <td>{item.Description}</td>
-                      <td>{item.Price}</td>
-                      <td>{item.Image}</td>
-                      <td>{item.Historia}</td>
-                    </tr>
-                  </MDBTableBody>
-                ))
-              )}
-            </MDBTable>
-          </MDBCol>
-        </MDBRow>
-        <div
-          style={{
-            margin: "auto",
-            padding: "15px",
-            maxWidth: "250px",
-            alignContent: "center",
-          }}
-        >
-          {renderPagination()}
-        </div>
+        {renderPagination()}
       </div>
-      {data.length > 0 && (
-        <MDBRow>
-          <MDBCol size="8">
-            <h5>Sort By:</h5>
-            <select
-              style={{ width: "50%", borderRadius: "2px", height: "35px" }}
-              onChange={handleSort}
-              value={sortValue}
-            >
-              <option>Please Select Value</option>
-              {sortOptions.map((item, index) => (
-                <option value={item} key={index}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </MDBCol>
-          <MDBCol size="4">
-            <h5>Filter By Status:</h5>
-            <MDBBtnGroup>
-              <MDBBtn color="success" onClick={() => handleFilter("Active")}>
-                Active
-              </MDBBtn>
-              <MDBBtn
-                color="danger"
-                style={{ marginLeft: "2px" }}
-                onClick={() => handleFilter("Inactive")}
-              >
-                Inactive
-              </MDBBtn>
-            </MDBBtnGroup>
-          </MDBCol>
-        </MDBRow>
-      )}
-    </MDBContainer>
+    </Container>
   );
 }
 

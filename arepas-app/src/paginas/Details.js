@@ -54,12 +54,10 @@ export function Details(props) {
         <tbody>
           {data.map((usr) => (
             <tr key={usr.id}>
+              <td>
               <MDBRow className="justify-content-center align-items-center h-100">
                 <MDBCol md="10" lg="8" xl="6" >
-                  <MDBCard
-                    className="card-stepper"
-                    style={{ borderRadius: "16px" }}
-                  >
+                  <MDBCard className="card-stepper" style={{ borderRadius: "16px" }}>
                     <MDBCardBody className="p-4">
                       <div className="d-flex flex-row mb-4 pb-2">
                         <div className="flex-fill">
@@ -105,6 +103,7 @@ export function Details(props) {
                   </MDBCard>
                 </MDBCol>
               </MDBRow>
+              </td>
             </tr>
           ))}
         </tbody>

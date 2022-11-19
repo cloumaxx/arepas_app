@@ -64,11 +64,6 @@ class NavigationBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
-                <Nav.Link className="text-light letrica" href="/Menu2">
-                  Menu2
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
                 <Nav.Link className="text-light letrica" href="/">
                   Menu
                 </Nav.Link>
