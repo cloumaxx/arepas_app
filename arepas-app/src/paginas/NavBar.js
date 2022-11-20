@@ -29,7 +29,7 @@ class NavigationBar extends Component {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
-          <Navbar.Brand className="text-light letrica">Arepa-app</Navbar.Brand>
+          <Navbar.Brand className="text-light letrica">P&A</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
