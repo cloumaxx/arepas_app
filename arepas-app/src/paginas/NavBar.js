@@ -8,16 +8,20 @@ const cookies = new Cookies();
 
 class NavigationBar extends Component {
   cerrarSesion = () => {
-    cookies.remove("id", { path: "/" });
-    cookies.remove("apellido_paterno", { path: "/" });
-    cookies.remove("apellido_materno", { path: "/" });
-    cookies.remove("nombre", { path: "/" });
-    cookies.remove("username", { path: "/" });
+    cookies.set("id", { path: "/" });
+    cookies.remove("Email", { path: "/" });
+    cookies.remove("Password", { path: "/" });
+    cookies.remove("FirstName", { path: "/" });
+    cookies.remove("LastName", { path: "/" });
+    cookies.remove("BirthofDate", { path: "/" });
+    cookies.remove("RegisterDate", { path: "/" });
+    cookies.remove("Address", { path: "/" });
+    cookies.set("log", false, { path: "/" });
     window.location.href = "/";
   };
 
   componentDidMount() {
-    if (cookies.get("username")) {
+    if (cookies.get("FirstName")) {
       return true;
     } else {
       return false;
@@ -25,7 +29,7 @@ class NavigationBar extends Component {
   }
 
   render() {
-    if (!cookies.get("username")) {
+    if (!cookies.get("FirstName")) {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
@@ -55,7 +59,7 @@ class NavigationBar extends Component {
         </Navbar>
       );
     }
-    if (cookies.get("username")) {
+    if (cookies.get("FirstName")) {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
@@ -70,6 +74,15 @@ class NavigationBar extends Component {
               </Nav.Item>
             </Nav>
             <Nav className="ms-auto">
+            <Nav.Item>
+                <Nav.Link
+                  className="text-light letrica"
+                  href="./"
+                  onClick={()=>console.log("xd")}
+                >
+                  carrito de compras
+                </Nav.Link>
+              </Nav.Item>
               <Nav.Item>
                 <Nav.Link
                   className="text-light letrica"

@@ -36,12 +36,15 @@ class Login extends Component {
       .then(response => {
         if (response.length > 0) {
           var respuesta = response[0];
- 
           cookies.set('id', respuesta.id, { path: "/" });
-          cookies.set('apellido_paterno', respuesta.apellido_paterno, { path: "/" });
-          cookies.set('apellido_materno', respuesta.apellido_materno, { path: "/" });
-          cookies.set('nombre', respuesta.nombre, { path: "/" });
-          cookies.set('username', respuesta.username, { path: "/" });
+          cookies.set('Email', respuesta.Email, { path: "/" });
+          cookies.set('Password', respuesta.Password, { path: "/" });
+          cookies.set('FirstName', respuesta.FirstName, { path: "/" });
+          cookies.set('LastName', respuesta.LastName, { path: "/" });
+          cookies.set('BirthofDate', respuesta.BirthofDate, { path: "/" });
+          cookies.set('RegisterDate', respuesta.RegisterDate, { path: "/" });
+          cookies.set('Address', respuesta.Address, { path: "/" });
+          cookies.set('log', true, { path: "/" });
           alert(`Bienvenido de vuelta ${respuesta.FirstName} ${respuesta.LastName}`);
           window.location.href = "./";
         } else {
