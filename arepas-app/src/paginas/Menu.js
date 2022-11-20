@@ -102,7 +102,7 @@ function Menu2() {
           </MDBPaginationItem>
           <MDBPaginationItem>
             <button className="btn btn-outline-light" onClick={() => loadUsersData(3, 6, 1, operation)}>
-              Next
+              Siguiente
             </button >
           </MDBPaginationItem>
         </MDBPagination>
@@ -122,7 +122,7 @@ function Menu2() {
                 )
               }
             >
-              Prev
+              Anterior
             </button >
           </MDBPaginationItem>
           <MDBPaginationItem>
@@ -141,7 +141,7 @@ function Menu2() {
                 )
               }
             >
-              Next
+              Siguiente
             </button >
           </MDBPaginationItem>
         </MDBPagination>
@@ -160,7 +160,7 @@ function Menu2() {
                 )
               }
             >
-              Prev
+              Anterior
             </button >
           </MDBPaginationItem>
           <MDBPaginationItem>
@@ -191,13 +191,13 @@ function Menu2() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Search Name ... "
+                placeholder="Busca un ingrediente... "
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
 
               <button  type="submit" className="btn btn-outline-light">
-                Search
+                Buscar
               </button >
             </form>
           </Container>
