@@ -10,6 +10,7 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import {baseUrl} from './conexiones/urls'
 import {Details} from './paginas/Details'
 import Menu from './paginas/Menu'
+import Carrito from './paginas/carrito'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Details" element={<Details />} />
+                <Route path="/Carrito" element={<Carrito />} />
                 <Route path="*" component={NotFound} />
               </Routes>
             </Router>

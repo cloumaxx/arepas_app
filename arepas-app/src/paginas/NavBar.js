@@ -3,8 +3,11 @@ import { Navbar, Nav } from "react-bootstrap";
 import "../css/NavBar.css";
 import logo from "../imagenes/arepa.png";
 import Cookies from "universal-cookie";
+import {useDispatch,useSelector} from 'react-redux';
+import { log } from "../actions/actions";
 
 const cookies = new Cookies();
+
 
 class NavigationBar extends Component {
   cerrarSesion = () => {
@@ -29,7 +32,9 @@ class NavigationBar extends Component {
   }
 
   render() {
-    if (!cookies.get("FirstName")) {
+    console.log(cookies.get("log"));
+    console.log(cookies.get("FirstName"));
+    if (cookies.get("log") === "false") {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
@@ -59,7 +64,7 @@ class NavigationBar extends Component {
         </Navbar>
       );
     }
-    if (cookies.get("FirstName")) {
+    if (cookies.get("log") === "true") {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
@@ -74,11 +79,10 @@ class NavigationBar extends Component {
               </Nav.Item>
             </Nav>
             <Nav className="ms-auto">
-            <Nav.Item>
+              <Nav.Item>
                 <Nav.Link
                   className="text-light letrica"
-                  href="./"
-                  onClick={()=>console.log("xd")}
+                  href="/Carrito"
                 >
                   carrito de compras
                 </Nav.Link>
@@ -86,7 +90,7 @@ class NavigationBar extends Component {
               <Nav.Item>
                 <Nav.Link
                   className="text-light letrica"
-                  href="./Register"
+                  href="/Register"
                   onClick={() => this.cerrarSesion()}
                 >
                   Cerrar Sesión

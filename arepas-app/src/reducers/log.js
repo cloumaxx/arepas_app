@@ -15,7 +15,7 @@ const logged = (
 ) => {
   switch (action.type) {
     case "log":
-      return [...state.log, true];
+      return { ...state,log: true};
 
     case "logout":
       return [...state.log, false];

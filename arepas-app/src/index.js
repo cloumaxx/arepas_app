@@ -6,11 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { createSlice, configureStore} from '@reduxjs/toolkit'
 import allReducers from './reducers/reducers'
 import { Provider } from 'react-redux';
-import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
-cookies.set('log', false, { path: "/" });
-const store = configureStore({
+export const store = configureStore({
   reducer: allReducers
 })
 

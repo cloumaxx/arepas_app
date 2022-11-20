@@ -1,7 +1,7 @@
 // log actions
 export const log = () =>{
     return{
-        type: 'log'
+        type: 'log',
     }
 }
 
