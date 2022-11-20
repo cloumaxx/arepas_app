@@ -6,27 +6,21 @@ import {
   MDBPaginationItem,
   MDBPaginationLink,
 } from "mdb-react-ui-kit";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Button, Container, Form, Card, Col } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Navbar from "react-bootstrap/Navbar";
 import { imagesUrl } from "../conexiones/urls";
-import {useDispatch} from 'react-redux';
-import {shopitem} from '../actions/actions'
 import { Link } from "react-router-dom";
 import "../App.css";
 
 function Menu2() {
-  //state functionality
-  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
-  const [sortValue, setSortValue] = useState("");
+  const [setSortValue] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const [XTotalCount] = useState(3);
+  const [pageLimit] = useState(4);
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
-  
 
   useEffect(() => {
     loadUsersData(0, 3, 0);
@@ -87,9 +81,18 @@ function Menu2() {
     }
   };
 
+  console.log("data", data);
+
   const handleSearch = async (e) => {
     e.preventDefault();
     loadUsersData(0, 3, 0, "search");
+    // return await axios
+    //   .get(`http://localhost:5000/users?q=${value}`)
+    //   .then((response) => {
+    //     setData(response.data);
+    //     setValue("");
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const renderPagination = () => {
@@ -101,21 +104,21 @@ function Menu2() {
             <MDBPaginationLink>1</MDBPaginationLink>
           </MDBPaginationItem>
           <MDBPaginationItem>
-            <button  onClick={() => loadUsersData(3, 6, 1, operation)}>
+            <MDBBtn onClick={() => loadUsersData(3, 6, 1, operation)}>
               Next
-            </button >
+            </MDBBtn>
           </MDBPaginationItem>
         </MDBPagination>
       );
-    } else if (currentPage < XTotalCount + XTotalCount && data.length === XTotalCount) {
+    } else if (currentPage < pageLimit -0 && data.length === pageLimit) {
       return (
-        <MDBPagination className="mb-0">        
+        <MDBPagination className="mb-0">
           <MDBPaginationItem>
-            <button 
+            <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage - 1) * 3,
-                  currentPage * 3,
+                  (currentPage - 1) * 4,
+                  currentPage * 4,
                   -1,
                   operation,
                   sortFilterValue
@@ -123,18 +126,18 @@ function Menu2() {
               }
             >
               Prev
-            </button >
+            </MDBBtn>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
           </MDBPaginationItem>
 
           <MDBPaginationItem>
-            <button 
+            <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage + 1) * 3,
-                  (currentPage + 2) * 3,
+                  (currentPage + 1) * 4,
+                  (currentPage + 2) * 4,
                   1,
                   operation,
                   sortFilterValue
@@ -142,7 +145,7 @@ function Menu2() {
               }
             >
               Next
-            </button >
+            </MDBBtn>
           </MDBPaginationItem>
         </MDBPagination>
       );
@@ -150,18 +153,18 @@ function Menu2() {
       return (
         <MDBPagination className="mb-0">
           <MDBPaginationItem>
-            <button 
+            <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage - 1) * 3,
-                  currentPage * 3,
+                  (currentPage - 1) * 4,
+                  currentPage * 4,
                   -1,
                   operation
                 )
               }
             >
               Prev
-            </button >
+            </MDBBtn>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
@@ -196,9 +199,9 @@ function Menu2() {
                 onChange={(e) => setValue(e.target.value)}
               />
 
-              <button  type="submit" color="dark">
+              <Button type="submit" className="btn btn-dark">
                 Search
-              </button >
+              </Button>
             </form>
           </Container>
         </Navbar>
@@ -220,7 +223,7 @@ function Menu2() {
                   <Card.Text>{item.Description}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Button className="left" variant="outline-success" onClick={()=> dispatch(shopitem(item.id))}>
+                  <Button className="left" variant="outline-success">
                     Ordenar por ${item.Price}!!
                   </Button>
                 </Card.Footer>
