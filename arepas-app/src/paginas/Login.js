@@ -5,8 +5,10 @@ import logo from '../imagenes/arepagif.gif';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import "../css/NavBar.css";
+import { useDispatch } from 'react-redux';
+import {} from '../actions/actions'
 
-const baseUrl = "http://localhost:3000/usuarios";
+const baseUrl = "http://localhost:3000/usuarios"; 
 const cookies = new Cookies();
 
 class Login extends Component {
@@ -34,12 +36,13 @@ class Login extends Component {
       .then(response => {
         if (response.length > 0) {
           var respuesta = response[0];
+ 
           cookies.set('id', respuesta.id, { path: "/" });
           cookies.set('apellido_paterno', respuesta.apellido_paterno, { path: "/" });
           cookies.set('apellido_materno', respuesta.apellido_materno, { path: "/" });
           cookies.set('nombre', respuesta.nombre, { path: "/" });
           cookies.set('username', respuesta.username, { path: "/" });
-          alert(`Bienvenido ${respuesta.nombre} ${respuesta.username}`);
+          alert(`Bienvenido de vuelta ${respuesta.FirstName} ${respuesta.LastName}`);
           window.location.href = "./";
         } else {
           alert('El usuario o la contraseña no son correctos');

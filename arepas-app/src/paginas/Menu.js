@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  MDBTable,
-  MDBTableHead,
-  MDBTableBody,
-  MDBRow,
-  MDBCol,
-  MDBContainer,
   MDBBtn,
   MDBPagination,
   MDBPaginationItem,
@@ -14,15 +8,17 @@ import {
 } from "mdb-react-ui-kit";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Button, Container, Form, Card, Col } from "react-bootstrap";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Row from "react-bootstrap/Row";
 import Navbar from "react-bootstrap/Navbar";
-import { imagesUrl, Orders } from "../conexiones/urls";
-import Pagination from "react-bootstrap/Pagination";
+import { imagesUrl } from "../conexiones/urls";
+import {useDispatch} from 'react-redux';
+import {shopitem} from '../actions/actions'
 import { Link } from "react-router-dom";
 import "../App.css";
 
 function Menu2() {
+  //state functionality
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const [sortValue, setSortValue] = useState("");
@@ -90,7 +86,7 @@ function Menu2() {
     }
   };
 
-  console.log("data", data);
+
 
   const handleReset = () => {
     setOperation("");
@@ -102,13 +98,6 @@ function Menu2() {
   const handleSearch = async (e) => {
     e.preventDefault();
     loadUsersData(0, 4, 0, "search");
-    // return await axios
-    //   .get(`http://localhost:5000/users?q=${value}`)
-    //   .then((response) => {
-    //     setData(response.data);
-    //     setValue("");
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   const renderPagination = () => {
@@ -239,7 +228,7 @@ function Menu2() {
                   <Card.Text>{item.Description}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Button className="left" variant="outline-success">
+                  <Button className="left" variant="outline-success" onClick={()=> dispatch(shopitem(item.id))}>
                     Ordenar por ${item.Price}!!
                   </Button>
                 </Card.Footer>
