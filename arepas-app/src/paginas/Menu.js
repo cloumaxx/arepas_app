@@ -23,9 +23,10 @@ function Menu2() {
   const [value, setValue] = useState("");
   const [sortValue, setSortValue] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageLimit] = useState(3);
+  const [XTotalCount] = useState(3);
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
+  
 
   useEffect(() => {
     loadUsersData(0, 3, 0);
@@ -106,7 +107,7 @@ function Menu2() {
           </MDBPaginationItem>
         </MDBPagination>
       );
-    } else if (currentPage < pageLimit - 0 && data.length === pageLimit) {
+    } else if (currentPage < XTotalCount + XTotalCount && data.length === XTotalCount) {
       return (
         <MDBPagination className="mb-0">        
           <MDBPaginationItem>
