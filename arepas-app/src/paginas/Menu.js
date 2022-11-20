@@ -100,17 +100,17 @@ function Menu2() {
             <MDBPaginationLink>1</MDBPaginationLink>
           </MDBPaginationItem>
           <MDBPaginationItem>
-            <MDBBtn onClick={() => loadUsersData(3, 6, 1, operation)}>
+            <button  onClick={() => loadUsersData(3, 6, 1, operation)}>
               Next
-            </MDBBtn>
+            </button >
           </MDBPaginationItem>
         </MDBPagination>
       );
-    } else if (currentPage < pageLimit - 1 && data.length === pageLimit) {
+    } else if (currentPage < pageLimit - 0 && data.length === pageLimit) {
       return (
         <MDBPagination className="mb-0">        
           <MDBPaginationItem>
-            <MDBBtn
+            <button 
               onClick={() =>
                 loadUsersData(
                   (currentPage - 1) * 3,
@@ -122,14 +122,14 @@ function Menu2() {
               }
             >
               Prev
-            </MDBBtn>
+            </button >
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
           </MDBPaginationItem>
 
           <MDBPaginationItem>
-            <MDBBtn
+            <button 
               onClick={() =>
                 loadUsersData(
                   (currentPage + 1) * 3,
@@ -141,7 +141,7 @@ function Menu2() {
               }
             >
               Next
-            </MDBBtn>
+            </button >
           </MDBPaginationItem>
         </MDBPagination>
       );
@@ -149,7 +149,7 @@ function Menu2() {
       return (
         <MDBPagination className="mb-0">
           <MDBPaginationItem>
-            <MDBBtn
+            <button 
               onClick={() =>
                 loadUsersData(
                   (currentPage - 1) * 3,
@@ -160,7 +160,7 @@ function Menu2() {
               }
             >
               Prev
-            </MDBBtn>
+            </button >
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
@@ -195,9 +195,9 @@ function Menu2() {
                 onChange={(e) => setValue(e.target.value)}
               />
 
-              <MDBBtn type="submit" color="dark">
+              <button  type="submit" color="dark">
                 Search
-              </MDBBtn>
+              </button >
             </form>
           </Container>
         </Navbar>
