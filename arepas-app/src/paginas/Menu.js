@@ -23,12 +23,12 @@ function Menu2() {
   const [value, setValue] = useState("");
   const [sortValue, setSortValue] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageLimit] = useState(4);
+  const [pageLimit] = useState(3);
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
 
   useEffect(() => {
-    loadUsersData(0, 4, 0);
+    loadUsersData(0, 3, 0);
   }, []);
 
   const loadUsersData = async (
@@ -86,23 +86,13 @@ function Menu2() {
     }
   };
 
-
-
-  const handleReset = () => {
-    setOperation("");
-    setValue("");
-    setSortFilterValue("");
-    setSortValue("");
-    loadUsersData(0, 4, 0);
-  };
   const handleSearch = async (e) => {
     e.preventDefault();
-    loadUsersData(0, 4, 0, "search");
+    loadUsersData(0, 3, 0, "search");
   };
 
   const renderPagination = () => {
-    console.log(data)
-    if (data.length < 4 && currentPage === 0) return null;
+    if (data.length < 3 && currentPage === 0) return null;
     if (currentPage === 0) {
       return (
         <MDBPagination className="mb-0">
@@ -110,7 +100,7 @@ function Menu2() {
             <MDBPaginationLink>1</MDBPaginationLink>
           </MDBPaginationItem>
           <MDBPaginationItem>
-            <MDBBtn onClick={() => loadUsersData(4, 8, 1, operation)}>
+            <MDBBtn onClick={() => loadUsersData(3, 6, 1, operation)}>
               Next
             </MDBBtn>
           </MDBPaginationItem>
@@ -118,13 +108,13 @@ function Menu2() {
       );
     } else if (currentPage < pageLimit - 1 && data.length === pageLimit) {
       return (
-        <MDBPagination className="mb-0">
+        <MDBPagination className="mb-0">        
           <MDBPaginationItem>
             <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage - 1) * 4,
-                  currentPage * 4,
+                  (currentPage - 1) * 3,
+                  currentPage * 3,
                   -1,
                   operation,
                   sortFilterValue
@@ -142,8 +132,8 @@ function Menu2() {
             <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage + 1) * 4,
-                  (currentPage + 2) * 4,
+                  (currentPage + 1) * 3,
+                  (currentPage + 2) * 3,
                   1,
                   operation,
                   sortFilterValue
@@ -162,8 +152,8 @@ function Menu2() {
             <MDBBtn
               onClick={() =>
                 loadUsersData(
-                  (currentPage - 1) * 4,
-                  currentPage * 4,
+                  (currentPage - 1) * 3,
+                  currentPage * 3,
                   -1,
                   operation
                 )
