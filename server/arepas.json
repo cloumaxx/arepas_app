@@ -90,6 +90,87 @@
       "Image": "/Arepa-Sencilla.jpg",
       "IngreArepa" :["Arepa", "Mantequilla"],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 11,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 12,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 13,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 14,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 15,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 16,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 17,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 18,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 19,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa" :["Arepa", "Mantequilla"],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     }
   ],
 
