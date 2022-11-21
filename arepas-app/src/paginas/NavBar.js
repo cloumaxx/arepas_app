@@ -5,7 +5,7 @@ import logo from "../imagenes/arepa.png";
 import Cookies from "universal-cookie";
 import {useDispatch,useSelector} from 'react-redux';
 import { log } from "../actions/actions";
-
+import { Link } from "react-router-dom";
 const cookies = new Cookies();
 
 
@@ -34,7 +34,7 @@ class NavigationBar extends Component {
   render() {
     console.log(cookies.get("log"));
     console.log(cookies.get("FirstName"));
-    if (cookies.get("log") === "false") {
+    if (cookies.get("log") === "false" || cookies.get("log") == undefined) {
       return (
         <Navbar className="navbar border border-white ">
           <img src={logo} className="App-logo" alt="lol" />
@@ -43,21 +43,15 @@ class NavigationBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
-                <Nav.Link className="text-light letrica" href="/">
-                  Menu
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/">Menu</Nav.Link>
               </Nav.Item>
             </Nav>
             <Nav className="ms-auto">
               <Nav.Item>
-                <Nav.Link className="text-light letrica" href="/Login">
-                  Login
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/Login">Login</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className="text-light letrica" href="./Register">
-                  Registrate
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/Register">Registrate</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
@@ -73,28 +67,15 @@ class NavigationBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
-                <Nav.Link className="text-light letrica" href="/">
-                  Menu
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/">Menu</Nav.Link>
               </Nav.Item>
             </Nav>
             <Nav className="ms-auto">
               <Nav.Item>
-                <Nav.Link
-                  className="text-light letrica"
-                  href="/Carrito"
-                >
-                  carrito de compras
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/Carrito">Carrito</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link
-                  className="text-light letrica"
-                  href="/Register"
-                  onClick={() => this.cerrarSesion()}
-                >
-                  Cerrar Sesión
-                </Nav.Link>
+              <Nav.Link as={Link} className="text-light letrica" to="/" onClick={() => this.cerrarSesion()}>Cerrar sesion</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

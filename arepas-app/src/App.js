@@ -18,17 +18,17 @@ function App() {
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
       minBreakpoint="xxs">
       <div className="App ">
-        <NavigationBar />
         <React.Fragment>
           <Layout>
             <Router>
+            <NavigationBar />
               <Routes>
                 <Route exact path="/" element={<Menu/>} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Details" element={<Details />} />
                 <Route path="/Carrito" element={<Carrito />} />
-                <Route path="*" component={NotFound} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Router>
           </Layout>

@@ -15,7 +15,17 @@ const logged = (
 ) => {
   switch (action.type) {
     case "log":
-      return { ...state,log: true};
+      return { ...state,log: true,
+        id:action.id,
+        Email: action.Email,
+        Password : action.Password,
+        FirstName: action.FirstName,
+        LastName: action.LastName,
+        BirthofDate: action.BirthofDate,
+        RegisterDate: action.RegisterDate,
+        Address: action.Address,
+        PhoneNumber: action.PhoneNumber
+      };
 
     case "logout":
       return [...state.log, false];

@@ -1,7 +1,16 @@
 // log actions
-export const log = () =>{
+export const log = (id,Email,Password,FirstName,LastName,BirthofDate,RegisterDate,Address,PhoneNumber) =>{
     return{
         type: 'log',
+        id: id,
+        Email: Email,
+        Password : Password,
+        FirstName: FirstName,
+        LastName: LastName,
+        BirthofDate: BirthofDate,
+        RegisterDate: RegisterDate,
+        Address: Address,
+        PhoneNumber: PhoneNumber
     }
 }
 
