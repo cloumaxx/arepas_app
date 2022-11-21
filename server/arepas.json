@@ -1,13 +1,15 @@
 {
   "arepas": [
-
     {
       "id": 1,
       "Name": "Arepa con chorizo",
       "Description": "Arepa acompañada con chorizo de res",
       "Price": "2500",
       "Image": "/Arepa-Con-Chorizo.jpg",
-      "IngreArepa" :["Arepa", "Chorizo"],
+      "IngreArepa": [
+        "Arepa",
+        "Chorizo"
+      ],
       "Historia": "Esta deliciosa arepa viene acompañada de un exquisito chorizo de su res"
     },
     {
@@ -16,7 +18,10 @@
       "Description": "Arepa con carne de res",
       "Price": "2500",
       "Image": "/Arepa-Rellena-Carne.jpg",
-      "IngreArepa" :["Arepa", "Carne"],
+      "IngreArepa": [
+        "Arepa",
+        "Carne"
+      ],
       "Historia": "Esta deliciosa arepa viene rellena con una exquisita carne de res recien asada a la parrilla"
     },
     {
@@ -25,7 +30,13 @@
       "Description": "Arepa con carne, pollo, chocharrón, huevo y salsas de la casa",
       "Price": "7000",
       "Image": "/Arepa-Rellena-Con-Todo.jpg",
-      "IngreArepa" :["Arepa", "Carne","Pollo","Chicharrón","Huevo"],
+      "IngreArepa": [
+        "Arepa",
+        "Carne",
+        "Pollo",
+        "Chicharrón",
+        "Huevo"
+      ],
       "Historia": "Esta deliciosa arepa viene acompañada con un exquisito relleno de carne, pollo, chicharron, huevo y las salsas al gusto"
     },
     {
@@ -34,7 +45,10 @@
       "Description": "Arepa con un queso cuajada",
       "Price": "3000",
       "Image": "/Arepa-Rellena-de-Queso-Cuajada.jpg",
-      "IngreArepa" :["Arepa", "Queso cuajada"],
+      "IngreArepa": [
+        "Arepa",
+        "Queso cuajada"
+      ],
       "Historia": "Esta deliciosa arepa viene acompañada de un exquisito queso cuajada en su parte superior"
     },
     {
@@ -43,7 +57,10 @@
       "Description": "Arepa con un queso tajado",
       "Price": "3000",
       "Image": "/Arepa-Rellena-de-Queso.jpg",
-      "IngreArepa" :["Arepa", "Queso tajado"],
+      "IngreArepa": [
+        "Arepa",
+        "Queso tajado"
+      ],
       "Historia": "Esta deliciosa arepa viene acompañada con un queso tajado que se derrite y sale por sus bordes"
     },
     {
@@ -52,7 +69,10 @@
       "Description": "Arepa rellena de huevos revueltos",
       "Price": "2500",
       "Image": "/Arepa-Rellena-Huevos-Revueltos.jpg",
-      "IngreArepa" :["Arepa", "Huevos revueltos"],
+      "IngreArepa": [
+        "Arepa",
+        "Huevos revueltos"
+      ],
       "Historia": "Esta deliciosa arepa viene rellena de huevos revueltos recien preparados para cualquier ocasión"
     },
     {
@@ -61,7 +81,11 @@
       "Description": "Arepa rellena con jamón y queso",
       "Price": "2500",
       "Image": "/Arepa-Rellena-Jamon-Queso.jpg",
-      "IngreArepa" :["Arepa", "Jamón","Queso"],
+      "IngreArepa": [
+        "Arepa",
+        "Jamón",
+        "Queso"
+      ],
       "Historia": "Esta deliciosa arepa viene Rellena con jamon y queso los cuales hacen una combinacion espectacular"
     },
     {
@@ -70,7 +94,10 @@
       "Description": "Arepa rellena con pollo",
       "Price": "3500",
       "Image": "/Arepa-Rellena-Pollo.jpg",
-      "IngreArepa" :["Arepa", "Pollo"],
+      "IngreArepa": [
+        "Arepa",
+        "Pollo"
+      ],
       "Historia": "Esta deliciosa arepa viene rellena con pollo desmechado el cual es exquisito tambien"
     },
     {
@@ -79,7 +106,10 @@
       "Description": "Arepa rellena de salchicha ranchera",
       "Price": "3000",
       "Image": "/Arepa-Rellena-Salchicha-Ranchera.png",
-      "IngreArepa" :["Arepa", "Salchicha"],
+      "IngreArepa": [
+        "Arepa",
+        "Salchicha"
+      ],
       "Historia": "Esta deliciosa arepa viene rellena de trozos de salchichas rancheras las cuales hacen un contrase de sabor increible"
     },
     {
@@ -88,7 +118,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -97,7 +130,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -106,7 +142,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -115,7 +154,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -124,7 +166,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -133,7 +178,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -142,7 +190,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -151,7 +202,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -160,7 +214,10 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     },
     {
@@ -169,11 +226,25 @@
       "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
       "Image": "/Arepa-Sencilla.jpg",
-      "IngreArepa" :["Arepa", "Mantequilla"],
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    },
+    {
+      "id": 20,
+      "Name": "Arepa sencilla ",
+      "Description": "Arepa sencilla con mantequilla",
+      "Price": "700",
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
+      ],
       "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
     }
   ],
-
   "usuarios": [
     {
       "id": 1,
@@ -185,9 +256,20 @@
       "RegisterDate": "22/12/2001",
       "Address": "cll 3d #2-12",
       "PhoneNumber": "12312412"
+    },
+    {
+      "Email": "",
+      "Password": "",
+      "FirstName": "",
+      "LastName": "",
+      "BirthofDate": "",
+      "RegisterDate": "",
+      "Address": "",
+      "PhoneNumber": "",
+      "id": 2
     }
   ],
-"Orders": [
+  "Orders": [
     {
       "id": 1,
       "CreatedDate": "",
@@ -200,7 +282,7 @@
       "DeliveryLastName": ""
     }
   ],
-"OrderDetails": [
+  "OrderDetails": [
     {
       "id": 1,
       "OrderId": "",

@@ -73,7 +73,7 @@ class NavigationBar extends Component {
               <Nav.Item>
                 <Nav.Link
                   className="text-light letrica"
-                  href="./Register"
+                  href="./"
                   onClick={() => this.cerrarSesion()}
                 >
                   Cerrar Sesión

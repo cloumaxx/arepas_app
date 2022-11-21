@@ -24,6 +24,7 @@ export const Register = () => {
 
     if (response) {
       alert("dato enviado con exito");
+      window.location.href = "/Login";
     } else {
       alert("algo salio mal");
     }
@@ -94,7 +95,7 @@ export const Register = () => {
       <p></p>
       </div>
       <div className="mb-3">
-        <button className='btn btn-success' onClick={handleFormSubmit}>Registrate</button>
+        <button className='btn btn-success' type="submit" href="/Login" onClick={handleFormSubmit}>Registrate</button>
       </div>
       <img src={logo} className="img-fluid" alt='lol' width="260" height="220" />
     </Form.Group>
