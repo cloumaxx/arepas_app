@@ -7,13 +7,14 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import { Container, Form, Card, Col } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
+import { imagesUrl } from "../conexiones/urls";
 import "../App.css";
 
 const cookies = new Cookies();
 
 function Carrito(props) {
   const dispatch = new useDispatch();
-
+  
   let xd = useSelector((state) => state.car.fetchedSpendings);
 
   const [myArray, updateMyArray] = useState([]);
@@ -28,36 +29,32 @@ function Carrito(props) {
         console.log(error);
       });
   };
-
+     
   useEffect(() => {
+    console.log("Arreglo  = "+ xd.length);
     for (let i = 0; i < xd.length; i++) {
       GetItem(xd[i]);
+    console.log("Valor de i = "+ i );
     }
   }, []);
-
+    
   if (xd.length > 0) {
     console.log(myArray);
     return (
       <Row xs={3} md={3} className="g-4">
         {myArray.map((item) => (
           <Col key={item.id} >
-            <Container>
+            <Container className="Carrito">
               <Card>
-                <Card.Img variant="top" className="img-thumbnail" />
-
-                <Card.Body className="description">
+              <Card.Img
+                    variant="top"
+                    src={`${imagesUrl + item.Image}`}
+                    className="img-thumbnail"
+                  />
+                <Card.Body>
                   <Card.Title>{item.Name}</Card.Title>
                   <Card.Text>{item.Description}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                  <Button
-                    className="left"
-                    variant="outline-success"
-                    onClick={() => dispatch(shopitem(item.id))}
-                  >
-                    Ordenar por ${item.Price}!!
-                  </Button>
-                </Card.Footer>
               </Card>
             </Container>
           </Col>

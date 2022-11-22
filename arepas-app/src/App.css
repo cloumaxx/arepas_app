@@ -6,6 +6,8 @@
   /* background-color: #232323; */
   background-color: #1B1B1B;
   height: 100vh;
+  
+
 }
 
 .App-logo {
@@ -42,3 +44,7 @@
     transform: rotate(360deg);
   }
 }
+.Carrito{
+  margin-top: 90px;
+}
+
