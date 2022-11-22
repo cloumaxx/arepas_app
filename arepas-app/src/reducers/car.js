@@ -4,7 +4,7 @@ const car = ( state = {fetchedSpendings: []},action) => {
     
             return {
                 ...state,
-                fetchedSpendings: [...state.fetchedSpendings, action.payload],
+                fetchedSpendings: [...state.fetchedSpendings, action.id],
               }
 
         default: 

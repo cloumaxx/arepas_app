@@ -101,6 +101,7 @@ function Menu2() {
   };
 
   const renderPagination = () => {
+    console.log(data)
     if (data.length < 4 && currentPage === 0) return null;
     if (currentPage === 0) {
       return (

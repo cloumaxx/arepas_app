@@ -24,6 +24,6 @@ export const logout = () =>{
 export const shopitem = (arepa) =>{
     return{
         type: 'shop',
-        payload:arepa
+        id:arepa
     }
 }

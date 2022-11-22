@@ -36,6 +36,7 @@ export function Details(props) {
     GetUsers();
   }, []);
 
+  
   function RenderIngredientes(ingredientes) {
     console.log(ingredientes);
     const ingredientesList = [];
