@@ -10,10 +10,14 @@ import { Button, Container, Form, Card, Col } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Navbar from "react-bootstrap/Navbar";
 import { imagesUrl } from "../conexiones/urls";
-import {useDispatch} from 'react-redux';
-import {shopitem} from '../actions/actions'
+import { useDispatch } from "react-redux";
+import { shopitem } from "../actions/actions";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { log , logout } from "../actions/actions";
+import Cookies from "universal-cookie";
 import "../App.css";
+
 
 function Menu2() {
   //state functionality
@@ -25,10 +29,41 @@ function Menu2() {
   const [XTotalCount] = useState(3);
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
-  
+  const cookies = new Cookies();
+
+  let selector = useSelector((state) => state.logged.log);
+
+  let id = cookies.get("id");
+  let Email = cookies.get("Email");
+  let Password = cookies.get("Email");
+  let FirstName = cookies.get("FirstName");
+  let LastName = cookies.get("LastName");
+  let BirthofDate = cookies.get("BirthofDate");
+  let RegisterDate = cookies.get("RegisterDate");
+  let Address = cookies.get("Address");
+  let PhoneNumber = cookies.get("PhoneNumber");
 
   useEffect(() => {
     loadUsersData(0, 3, 0);
+    console.log(cookies.get('log'))
+    if(cookies.get('log') === "true"){
+      console.log('xd');
+      dispatch(
+        log(
+          id,
+          Email,
+          Password,
+          FirstName,
+          LastName,
+          BirthofDate,
+          RegisterDate,
+          Address,
+          PhoneNumber
+        )
+      );
+    }else{
+      dispatch(logout)
+    }
   }, []);
 
   const loadUsersData = async (
@@ -100,17 +135,24 @@ function Menu2() {
             <MDBPaginationLink>1</MDBPaginationLink>
           </MDBPaginationItem>
           <MDBPaginationItem>
-            <button className="btn btn-outline-light" onClick={() => loadUsersData(3, 6, 1, operation)}>
+            <button
+              className="btn btn-outline-light"
+              onClick={() => loadUsersData(3, 6, 1, operation)}
+            >
               Siguiente
-            </button >
+            </button>
           </MDBPaginationItem>
         </MDBPagination>
       );
-    } else if (currentPage < XTotalCount + XTotalCount && data.length === XTotalCount) {
+    } else if (
+      currentPage < XTotalCount + XTotalCount &&
+      data.length === XTotalCount
+    ) {
       return (
-        <MDBPagination className="mb-0">        
+        <MDBPagination className="mb-0">
           <MDBPaginationItem>
-            <button className="btn btn-outline-light"
+            <button
+              className="btn btn-outline-light"
               onClick={() =>
                 loadUsersData(
                   (currentPage - 1) * 3,
@@ -122,14 +164,15 @@ function Menu2() {
               }
             >
               Anterior
-            </button >
+            </button>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
           </MDBPaginationItem>
 
           <MDBPaginationItem>
-            <button className="btn btn-outline-light"
+            <button
+              className="btn btn-outline-light"
               onClick={() =>
                 loadUsersData(
                   (currentPage + 1) * 3,
@@ -141,7 +184,7 @@ function Menu2() {
               }
             >
               Siguiente
-            </button >
+            </button>
           </MDBPaginationItem>
         </MDBPagination>
       );
@@ -149,7 +192,8 @@ function Menu2() {
       return (
         <MDBPagination className="mb-0">
           <MDBPaginationItem>
-            <button className="btn btn-outline-light"
+            <button
+              className="btn btn-outline-light"
               onClick={() =>
                 loadUsersData(
                   (currentPage - 1) * 3,
@@ -160,7 +204,7 @@ function Menu2() {
               }
             >
               Anterior
-            </button >
+            </button>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink>{currentPage + 1}</MDBPaginationLink>
@@ -195,9 +239,9 @@ function Menu2() {
                 onChange={(e) => setValue(e.target.value)}
               />
 
-              <button  type="submit" className="btn btn-outline-light">
+              <button type="submit" className="btn btn-outline-light">
                 Buscar
-              </button >
+              </button>
             </form>
           </Container>
         </Navbar>
@@ -219,7 +263,17 @@ function Menu2() {
                   <Card.Text>{item.Description}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Button className="left" variant="outline-success" onClick={()=> dispatch(shopitem(item.id))}>
+                  {selector == true  && (
+                    <Button
+                    className="left"
+                    variant="outline-danger"
+                    onClick={() => dispatch(shopitem(item.id))}
+                  >
+                    carrito
+                  </Button>
+                  )}
+                  
+                  <Button className="left" variant="outline-success">
                     Ordenar por ${item.Price}!!
                   </Button>
                 </Card.Footer>
@@ -244,4 +298,3 @@ function Menu2() {
 }
 
 export default Menu2;
-

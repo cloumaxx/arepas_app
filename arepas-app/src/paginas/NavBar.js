@@ -32,8 +32,6 @@ class NavigationBar extends Component {
   }
 
   render() {
-    console.log(cookies.get("log"));
-    console.log(cookies.get("FirstName"));
     if (cookies.get("log") === "false" || cookies.get("log") == undefined) {
       return (
         <Navbar className="navbar border border-white ">

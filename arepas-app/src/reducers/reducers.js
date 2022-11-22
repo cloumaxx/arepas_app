@@ -3,8 +3,9 @@ import logged from './log'
 import {combineReducers}  from '@reduxjs/toolkit'
 
 const allReducers = combineReducers({
-    car,
-    logged
+    logged,
+    car
+    
 })
 
 export default allReducers;

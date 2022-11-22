@@ -14,16 +14,6 @@ const cookies = new Cookies();
 function Carrito(props) {
   const dispatch = new useDispatch();
 
-  let id = cookies.get("id");
-  let Email = cookies.get("Email");
-  let Password = cookies.get("Email");
-  let FirstName = cookies.get("FirstName");
-  let LastName = cookies.get("LastName");
-  let BirthofDate = cookies.get("BirthofDate");
-  let RegisterDate = cookies.get("RegisterDate");
-  let Address = cookies.get("Address");
-  let PhoneNumber = cookies.get("PhoneNumber");
-
   let xd = useSelector((state) => state.car.fetchedSpendings);
 
   const [myArray, updateMyArray] = useState([]);
@@ -40,19 +30,6 @@ function Carrito(props) {
   };
 
   useEffect(() => {
-    dispatch(
-      log(
-        id,
-        Email,
-        Password,
-        FirstName,
-        LastName,
-        BirthofDate,
-        RegisterDate,
-        Address,
-        PhoneNumber
-      )
-    );
     for (let i = 0; i < xd.length; i++) {
       GetItem(xd[i]);
     }
