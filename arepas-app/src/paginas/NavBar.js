@@ -51,6 +51,11 @@ class NavigationBar extends Component {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
+            <Nav.Item>
+                <Nav.Link className="text-light letrica" href="./Order.js">
+                  Order
+                </Nav.Link>
+              </Nav.Item>
           </Navbar.Collapse>
         </Navbar>
       );
