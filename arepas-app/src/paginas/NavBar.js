@@ -50,6 +50,11 @@ class NavigationBar extends Component {
                   Registrate
                 </Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link className="text-light letrica" href="./Orders">
+                Orders
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
             <Nav.Item>
                 <Nav.Link className="text-light letrica" href="./Order.js">

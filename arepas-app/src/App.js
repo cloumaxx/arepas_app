@@ -3,6 +3,7 @@ import NavigationBar  from './paginas/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Login  from './paginas/Login';
+import Orders from './paginas/Orders';
 import { Register } from './paginas/Register';
 import {Order} from './paginas/Order'
 import { Layout } from './layout';
@@ -11,6 +12,7 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import {baseUrl} from './conexiones/urls'
 import {Details} from './paginas/Details'
 import Menu from './paginas/Menu'
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Details" element={<Details />} />
+                <Route path="/Orders" element={<Orders />} />
                 <Route path="*" component={NotFound} />
                 <Route path="/Order" element={<Order />} />
               </Routes>

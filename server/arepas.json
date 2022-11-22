@@ -274,12 +274,12 @@
       "id": 1,
       "CreatedDate": "",
       "CustomerId": "",
-      "TotalOrder": "",
-      "Notes": "",
       "DeliveryAddress": "",
       "DeliveryPhoneNumber": "",
       "DeliveryFirstName": "",
-      "DeliveryLastName": ""
+      "DeliveryLastName": "",
+	  "TotalOrder": "",
+      "Notes": "",
     }
   ],
   "OrderDetails": [
