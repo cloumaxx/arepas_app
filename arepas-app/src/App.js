@@ -11,6 +11,7 @@ import {baseUrl} from './conexiones/urls'
 import {Details} from './paginas/Details'
 import Menu from './paginas/Menu'
 import Carrito from './paginas/carrito'
+import {Orders} from './paginas/pedir'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Details" element={<Details />} />
                 <Route path="/Carrito" element={<Carrito />} />
+                <Route path="/Orders" element={<Orders />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Router>

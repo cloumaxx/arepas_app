@@ -36,15 +36,12 @@ function Carrito(props) {
   }, []);
 
   if (xd.length > 0) {
-    console.log(myArray);
     return (
       <Row xs={3} md={3} className="g-4">
         {myArray.map((item) => (
           <Col key={item.id} >
-            <Container>
+            <Container className="Carrito">
               <Card>
-                <Card.Img variant="top" className="img-thumbnail" />
-
                 <Card.Body className="description">
                   <Card.Title>{item.Name}</Card.Title>
                   <Card.Text>{item.Description}</Card.Text>

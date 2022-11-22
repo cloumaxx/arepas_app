@@ -38,7 +38,6 @@ export function Details(props) {
 
   
   function RenderIngredientes(ingredientes) {
-    console.log(ingredientes);
     const ingredientesList = [];
     for (let i = 0; i < ingredientes.length; i++) {
       ingredientesList.push(<ListGroup.Item key={"ingrediente"+i}>{ingredientes[i]}</ListGroup.Item>);

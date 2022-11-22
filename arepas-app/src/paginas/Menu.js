@@ -8,7 +8,7 @@ import {
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Button, Container, Form, Card, Col } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
-import Navbar from "react-bootstrap/Navbar";
+import { Navbar, Nav } from "react-bootstrap";
 import { imagesUrl } from "../conexiones/urls";
 import { useDispatch } from "react-redux";
 import { shopitem } from "../actions/actions";
@@ -45,9 +45,7 @@ function Menu2() {
 
   useEffect(() => {
     loadUsersData(0, 3, 0);
-    console.log(cookies.get('log'))
     if(cookies.get('log') === "true"){
-      console.log('xd');
       dispatch(
         log(
           id,
@@ -124,6 +122,10 @@ function Menu2() {
   const handleSearch = async (e) => {
     e.preventDefault();
     loadUsersData(0, 3, 0, "search");
+  };
+  const orders = async (e) => {
+    e.preventDefault();
+    window.location.href = "/Orders";
   };
 
   const renderPagination = () => {
@@ -273,8 +275,9 @@ function Menu2() {
                   </Button>
                   )}
                   
-                  <Button className="left" variant="outline-success">
-                    Ordenar por ${item.Price}!!
+                  <Button as={Link} className="left" variant="outline-success" >
+                  <Nav.Link as={Link} className="text-light letrica" to="/Orders">Ordenar por ${item.Price}!!</Nav.Link>
+                    
                   </Button>
                 </Card.Footer>
               </Card>
