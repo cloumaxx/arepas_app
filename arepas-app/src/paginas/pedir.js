@@ -15,11 +15,8 @@ export function Orders() {
 
   let DeliveryAddress = useSelector((state) => state.logged.Email);
   let DeliveryPhoneNumber = useSelector((state) => state.logged.PhoneNumber);
-  let DeliveryFirstName = useSelector(
-    (state) => state.logged.DeliveryFirstName
-  );
+  let DeliveryFirstName = useSelector((state) => state.logged.FirstName);
   let DeliveryLastName = useSelector((state) => state.logged.LastName);
-  let Notes = useSelector((state) => state.logged.Notes);
 
   let logged = useSelector((state) => state.logged.log);
 
@@ -176,16 +173,14 @@ export function Orders() {
               <h4 className="center">Nombre</h4>
             </div>
             <input
-              placeholder="su correo"
+              placeholder="su Nombre"
               type="name"
               className="form-control-lg"
               id="ControlInputCorreo"
               value={fromData.DeliveryFirstName}
-              onChange={(e) =>
-                setFormData({ ...fromData, DeliveryFirstName: e.target.value })
-              }
               size={25}
-              readOnly/>
+              readOnly
+            />
             <p></p>
             <div className="justify-content-start text-light letrica">
               <h4 className="center">Apellido </h4>
@@ -196,11 +191,9 @@ export function Orders() {
               className="form-control-lg"
               id="ControlInputContraseña"
               value={fromData.DeliveryLastName}
-              onChange={(e) =>
-                setFormData({ ...fromData, DeliveryLastName: e.target.value })
-              }
               size={25}
-              readOnly/>
+              readOnly
+            />
             <p></p>
             <div className="justify-content-start text-light letrica">
               <h4 className="center">Dirreccion</h4>
@@ -211,44 +204,34 @@ export function Orders() {
               className="form-control-lg"
               id="exampleFormControlInput1"
               value={fromData.DeliveryAddress}
-              onChange={(e) =>
-                setFormData({ ...fromData, DeliveryAddress: e.target.value })
-              }
               size={25}
-              readOnly/>
+              readOnly
+            />
             <p></p>
             <div className="justify-content-start text-light letrica">
               <h4 className="center">Numero</h4>
             </div>
             <input
-              placeholder="Su Apellido"
+              placeholder="Su Numero"
               type="phone"
               className="form-control-lg"
               id="exampleFormControlInput1"
               value={fromData.DeliveryPhoneNumber}
-              onChange={(e) =>
-                setFormData({
-                  ...fromData,
-                  DeliveryPhoneNumber: e.target.value,
-                })
-              }
               size={25}
-              readOnly/>
+              
+            />
             <p></p>
             <div className="justify-content-start text-light letrica ">
               <h4 className="center">Notas</h4>
             </div>
             <input
-              placeholder="Su Apellido"
+              placeholder="direcion, casa o apartamento etc"
               type="text"
               className="form-control-lg"
               id="exampleFormControlInput1"
-              value={fromData.Notes}
-              onChange={(e) =>
-                setFormData({ ...fromData, Notes: e.target.value })
-              }
+              
               size={25}
-              readOnly/>
+            />
             <p></p>
           </div>
           <div className="mb-3">
