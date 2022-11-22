@@ -1,133 +1,104 @@
-import React, { Component,useState } from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import "../css/NavBar.css";
-import Cookies from "universal-cookie";
-import axios from 'axios';
-import {  Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
 import '../css/Menu.css'
+import {  Container } from 'react-bootstrap';
 
 
-const cookies = new Cookies();
+export function Orders() {
+  const [show, setShow] = useState(false);
 
-class Order extends Component {
-  cerrarSesion = () => {
-    cookies.remove("id", { path: "/" });
-    cookies.remove("apellido_paterno", { path: "/" });
-    cookies.remove("apellido_materno", { path: "/" });
-    cookies.remove("nombre", { path: "/" });
-    cookies.remove("username", { path: "/" });
-    window.location.href = "/";
-  };
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  componentDidMount() {
-    if (cookies.get("username")) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
-  render() {
-    if (!cookies.get("username")) {
-      
-      function Order() {
 
-    const [fromData, setFormData] = useState({
-      Email: "",
-      Password: "",
-      FirstName: "",
-      LastName: "",
-      BirthofDate: "",
-      RegisterDate: "",
-      Address: "",
-      PhoneNumber: ""
-    });
-
-    const handleFormSubmit = async (e) => {
-
-  let response = await axios.post('http://localhost:3000/usuarios', fromData);
-
-  if (response) {
-    alert("dato enviado con exito");
-    window.location.href = "/Login";
-  } else {
-    alert("algo salio mal");
-  }
-
-  setFormData({
-    Email: "",
-    Password: "",
-    FirstName: "",
-    LastName: "",
-    BirthofDate: "",
-    RegisterDate: "",
-    Address: "",
-    PhoneNumber: ""
+  
+  const [fromData, setFormData] = useState({
+    DeliveryAddress: "",
+    DeliveryPhoneNumber: "",
+    DeliveryFirstName: "",
+    DeliveryLastName: "",
+    Notes: "",
   });
-}
-      return (
+
+  const handleFormSubmit = async (e) => {
+
+    let response = await axios.post('http://localhost:3000/Orders', fromData);
+
+    if (response) {
+      alert("dato enviado con exito");
+      window.location.href = "/Login";
+    } else {
+      alert("algo salio mal");
+    }
+
+    setFormData({
+      DeliveryAddress: "",
+      DeliveryPhoneNumber: "",
+      DeliveryFirstName: "",
+      DeliveryLastName: "",
+      Notes: "",
+    });
+  }
+
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        no login
+      </Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Datos de envio</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
         <Form.Group className="form-group mb-3" controlId="formBasicEmail">
     <p></p>
       <div className="one-half last">
       <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Correo electronico</h4>
-      </div>
-      <input placeholder='su correo' type="Email"  className="form-control-lg" id="ControlInputCorreo" value={fromData.Email} onChange={(e) => setFormData({ ...fromData, Email: e.target.value })} size={25} />
-      <p></p>
-      <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Contraseña </h4>
-      </div>
-      <input placeholder='contraseña' type="Password" className="form-control-lg" id="ControlInputContraseña" value={fromData.Password} onChange={(e) => setFormData({ ...fromData, Password: e.target.value })} size={25} />
-      <p></p>
-      <div className='justify-content-start text-light letrica'>
       <h4 className="center">Nombre</h4>
       </div>
-      <input placeholder='Su Nombre' type="name" className="form-control-lg" id="exampleFormControlInput1" value={fromData.FirstName} onChange={(e) => setFormData({ ...fromData, FirstName: e.target.value })} size={25} />
+      <input placeholder='su correo' type="name"  className="form-control-lg" id="ControlInputCorreo" value={fromData.DeliveryFirstName} onChange={(e) => setFormData({ ...fromData, DeliveryFirstName: e.target.value })} size={25} />
       <p></p>
       <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Apellido</h4>
+      <h4 className="center">Apellido </h4>
       </div>
-      <input placeholder='Su Apellido' type="name" className="form-control-lg" id="exampleFormControlInput1" value={fromData.LastName} onChange={(e) => setFormData({ ...fromData, LastName: e.target.value })} size={25} />
-      </div>
-      <p></p>
-      <div className="one-half">
-      <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Fecha de Nacimiento</h4>
-      </div>
-      <input placeholder='Su fecha de nacimiento' type="date" className="form-control-lg" id="exampleFormControlInput1" value={fromData.BirthofDate} onChange={(e) => setFormData({ ...fromData, BirthofDate: e.target.value })} />
-
+      <input placeholder='contraseña' type="name" className="form-control-lg" id="ControlInputContraseña" value={fromData.DeliveryLastName} onChange={(e) => setFormData({ ...fromData, DeliveryLastName: e.target.value })} size={25} />
       <p></p>
       <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Fecha de Registro</h4>
+      <h4 className="center">Dirreccion</h4>
       </div>
-      <input placeholder='Su fecha de Registro' type="date" className="form-control-lg" id="exampleFormControlInput1" value={fromData.RegisterDate} onChange={(e) => setFormData({ ...fromData, RegisterDate: e.target.value })} />
-
-      <p></p>      
+      <input placeholder='Su Nombre' type="Address" className="form-control-lg" id="exampleFormControlInput1" value={fromData.DeliveryAddress} onChange={(e) => setFormData({ ...fromData, DeliveryAddress: e.target.value })} size={25} />
+      <p></p>
       <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Dirección</h4>
+      <h4 className="center">Numero</h4>
       </div>
-      <input placeholder='Su dirección' type="Address" className="form-control-lg" id="exampleFormControlInput1" value={fromData.Address} onChange={(e) => setFormData({ ...fromData, Address: e.target.value })} size={25} />
-      <p></p> 
-      <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Telefono</h4>
+      <input placeholder='Su Apellido' type="phone" className="form-control-lg" id="exampleFormControlInput1" value={fromData.DeliveryPhoneNumber} onChange={(e) => setFormData({ ...fromData, DeliveryPhoneNumber: e.target.value })} size={25} />
+      <p></p>
+      <div className='justify-content-start text-light letrica '>
+      <h4 className="center">Notas</h4>
       </div>
-      <input placeholder='Su telefono' type="phone" className="form-control-lg" id="exampleFormControlInput1" value={fromData.PhoneNumber} onChange={(e) => setFormData({ ...fromData, PhoneNumber: e.target.value })} size={25} />
+      <input placeholder='Su Apellido' type="text" className="form-control-lg" id="exampleFormControlInput1" value={fromData.Notes} onChange={(e) => setFormData({ ...fromData, Notes: e.target.value })} size={25} />
       <p></p>
       </div>
-      <div className="mb-3">
-        <button className='btn btn-success' type="submit" href="/Login" onClick={handleFormSubmit}>Registrate</button>
-      </div>
+      
     </Form.Group>
-      );
-    }
-  }
-    if (cookies.get("username")) {
-      return (
-        <h1>si login</h1>
-      );
-    }
-  }
-}
 
-export default Order;
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cerrar
+          </Button>
+          <Button className='btn btn-success' type="submit" href="./" onClick={handleFormSubmit}>
+            guardar datos 
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+
+};
+

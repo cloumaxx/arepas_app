@@ -3,7 +3,7 @@ import NavigationBar  from './paginas/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Login  from './paginas/Login';
-import Orders from './paginas/Orders';
+import {Orders} from './paginas/Orders';
 import { Register } from './paginas/Register';
 import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
