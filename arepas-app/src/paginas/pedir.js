@@ -12,14 +12,16 @@ export function Orders() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
+  let logged = useSelector((state) => state.logged.log);
+  let id = useSelector((state) => state.logged.id);
   let DeliveryAddress = useSelector((state) => state.logged.Email);
   let DeliveryPhoneNumber = useSelector((state) => state.logged.PhoneNumber);
   let DeliveryFirstName = useSelector((state) => state.logged.FirstName);
   let DeliveryLastName = useSelector((state) => state.logged.LastName);
-
-  let logged = useSelector((state) => state.logged.log);
-
+  var today = new Date(),date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  
+  console.log(today);
   const [fromData, setFormData] = useState({
     DeliveryAddress: DeliveryAddress,
     DeliveryPhoneNumber: DeliveryPhoneNumber,
@@ -29,6 +31,9 @@ export function Orders() {
   });
 
   const handleFormSubmit = async (e) => {
+    setFormData({ ...fromData, CustomerId: id });
+    setFormData({ ...fromData, DeliveryPhoneNumber: DeliveryPhoneNumber });
+    setFormData({ ...fromData, date: today });
     let response = await axios.post("http://localhost:3000/Orders", fromData);
 
     if (response) {
@@ -46,18 +51,6 @@ export function Orders() {
       Notes: "",
     });
   };
-
-  // useEffect(() => {
-  //     if(logged == true){
-  //       console.log(logged)
-  //       setFormData({ ...fromData, DeliveryAddress: DeliveryAddress});
-  //       setFormData({ ...fromData, DeliveryPhoneNumber: DeliveryPhoneNumber});
-  //       setFormData({ ...fromData, DeliveryFirstName: DeliveryFirstName});
-  //       setFormData({ ...fromData, DeliveryLastName: DeliveryLastName});
-  //       setFormData({ ...fromData, Notes: Notes});
-  //     }
-  //     console.log(fromData)
-  //   }, []);
 
   if (logged == false) {
     return (
