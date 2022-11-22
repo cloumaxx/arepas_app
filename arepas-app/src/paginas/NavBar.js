@@ -56,11 +56,6 @@ class NavigationBar extends Component {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-            <Nav.Item>
-                <Nav.Link className="text-light letrica" href="./Order.js">
-                  Order
-                </Nav.Link>
-              </Nav.Item>
           </Navbar.Collapse>
         </Navbar>
       );
@@ -84,8 +79,7 @@ class NavigationBar extends Component {
                 <Nav.Link
                   className="text-light letrica"
                   href="./"
-                  onClick={() => this.cerrarSesion()}
-                >
+                  onClick={() => this.cerrarSesion()}>
                   Cerrar Sesión
                 </Nav.Link>
               </Nav.Item>

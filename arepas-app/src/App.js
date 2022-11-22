@@ -5,7 +5,6 @@ import React from 'react';
 import Login  from './paginas/Login';
 import Orders from './paginas/Orders';
 import { Register } from './paginas/Register';
-import {Order} from './paginas/Order'
 import { Layout } from './layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
@@ -31,7 +30,6 @@ function App() {
                 <Route path="/Details" element={<Details />} />
                 <Route path="/Orders" element={<Orders />} />
                 <Route path="*" component={NotFound} />
-                <Route path="/Order" element={<Order />} />
               </Routes>
             </Router>
           </Layout>
