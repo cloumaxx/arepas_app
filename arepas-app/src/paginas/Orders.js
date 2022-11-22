@@ -70,15 +70,6 @@ class Order extends Component {
         <Form.Group className="form-group mb-3" controlId="formBasicEmail">
     <p></p>
       <div className="one-half last">
-      <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Correo electronico</h4>
-      </div>
-      <input placeholder='su correo' type="Email"  className="form-control-lg" id="ControlInputCorreo" value={fromData.Email} onChange={(e) => setFormData({ ...fromData, Email: e.target.value })} size={25} />
-      <p></p>
-      <div className='justify-content-start text-light letrica'>
-      <h4 className="center">Contraseña </h4>
-      </div>
-      <input placeholder='contraseña' type="Password" className="form-control-lg" id="ControlInputContraseña" value={fromData.Password} onChange={(e) => setFormData({ ...fromData, Password: e.target.value })} size={25} />
       <p></p>
       <div className='justify-content-start text-light letrica'>
       <h4 className="center">Nombre</h4>
@@ -91,6 +82,19 @@ class Order extends Component {
       <input placeholder='Su Apellido' type="name" className="form-control-lg" id="exampleFormControlInput1" value={fromData.LastName} onChange={(e) => setFormData({ ...fromData, LastName: e.target.value })} size={25} />
       </div>
       <p></p>
+
+
+      <div className='justify-content-start text-light letrica'>
+      <h4 className="center">Correo electronico</h4>
+      </div>
+      <input placeholder='su correo' type="Email"  className="form-control-lg" id="ControlInputCorreo" value={fromData.Email} onChange={(e) => setFormData({ ...fromData, Email: e.target.value })} size={25} />
+      <p></p>
+      <div className='justify-content-start text-light letrica'>
+      <h4 className="center">Contraseña </h4>
+      </div>
+      <input placeholder='contraseña' type="Password" className="form-control-lg" id="ControlInputContraseña" value={fromData.Password} onChange={(e) => setFormData({ ...fromData, Password: e.target.value })} size={25} />
+      
+      
       <div className="one-half">
       <div className='justify-content-start text-light letrica'>
       <h4 className="center">Fecha de Nacimiento</h4>
@@ -117,6 +121,9 @@ class Order extends Component {
       </div>
       <div className="mb-3">
         <button className='btn btn-success' type="submit" href="/Login" onClick={handleFormSubmit}>Registrate</button>
+      </div>
+      <div>
+        
       </div>
     </Form.Group>
       );
