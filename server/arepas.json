@@ -1,76 +1,130 @@
 {
   "arepas": [
-	  {
-"id": 1,
+    {
+      "id": 1,
       "Name": "Arepa con chorizo",
-      "Description": "Deliciosa arepa acompañada de chorizo de su res o pollo",
+      "Description": "Arepa acompañada con chorizo de res",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Con-Chorizo.jpg"
+      "Image": "/Arepa-Con-Chorizo.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Chorizo"
+      ],
+      "Historia": "Esta deliciosa arepa viene acompañada de un exquisito chorizo de su res"
     },
     {
       "id": 2,
       "Name": "Arepa con carne",
-      "Description": "Deliciosa arepa acompañada con carne de res",
+      "Description": "Arepa con carne de res",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Carne.jpg"
+      "Image": "/Arepa-Rellena-Carne.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Carne"
+      ],
+      "Historia": "Esta deliciosa arepa viene rellena con una exquisita carne de res recien asada a la parrilla"
     },
     {
       "id": 3,
       "Name": "Arepa con todo",
-      "Description": "Deliciosa arepa acompañada con carne, pollo, chocharrón, huevo y salsas de la casa",
+      "Description": "Arepa con carne, pollo, chocharrón, huevo y salsas de la casa",
       "Price": "7000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Con-Todo.jpg"
+      "Image": "/Arepa-Rellena-Con-Todo.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Carne",
+        "Pollo",
+        "Chicharrón",
+        "Huevo"
+      ],
+      "Historia": "Esta deliciosa arepa viene acompañada con un exquisito relleno de carne, pollo, chicharron, huevo y las salsas al gusto"
     },
     {
       "id": 4,
       "Name": "Arepa con queso cuajada",
-      "Description": "Deliciosa arepa acompañada con un queso cuajada",
+      "Description": "Arepa con un queso cuajada",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso-Cuajada.jpg"
+      "Image": "/Arepa-Rellena-de-Queso-Cuajada.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Queso cuajada"
+      ],
+      "Historia": "Esta deliciosa arepa viene acompañada de un exquisito queso cuajada en su parte superior"
     },
     {
       "id": 5,
       "Name": "Arepa con queso ",
-      "Description": "Deliciosa arepa rellena con un queso tajado",
+      "Description": "Arepa con un queso tajado",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-de-Queso.jpg"
+      "Image": "/Arepa-Rellena-de-Queso.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Queso tajado"
+      ],
+      "Historia": "Esta deliciosa arepa viene acompañada con un queso tajado que se derrite y sale por sus bordes"
     },
     {
       "id": 6,
       "Name": "Arepa con huevos revueltos ",
-      "Description": "Deliciosa arepa rellena de huevos revueltos",
+      "Description": "Arepa rellena de huevos revueltos",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Huevos-Revueltos.jpg"
+      "Image": "/Arepa-Rellena-Huevos-Revueltos.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Huevos revueltos"
+      ],
+      "Historia": "Esta deliciosa arepa viene rellena de huevos revueltos recien preparados para cualquier ocasión"
     },
     {
       "id": 7,
       "Name": "Arepa con jamon y queso ",
-      "Description": "Deliciosa arepa rellena con jamón y queso",
+      "Description": "Arepa rellena con jamón y queso",
       "Price": "2500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Jamon-Queso.jpg"
+      "Image": "/Arepa-Rellena-Jamon-Queso.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Jamón",
+        "Queso"
+      ],
+      "Historia": "Esta deliciosa arepa viene Rellena con jamon y queso los cuales hacen una combinacion espectacular"
     },
     {
       "id": 8,
       "Name": "Arepa con pollo ",
-      "Description": "Deliciosa arepa rellena con pollo",
+      "Description": "Arepa rellena con pollo",
       "Price": "3500",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Pollo.jpg"
+      "Image": "/Arepa-Rellena-Pollo.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Pollo"
+      ],
+      "Historia": "Esta deliciosa arepa viene rellena con pollo desmechado el cual es exquisito tambien"
     },
     {
       "id": 9,
       "Name": "Arepa con salchicha ",
-      "Description": "Deliciosa arepa rellena de salchicha ranchera",
+      "Description": "Arepa rellena de salchicha ranchera",
       "Price": "3000",
-      "Image": "arepas-app/src/imagenes/Arepa-Rellena-Salchicha-Ranchera.png"
+      "Image": "/Arepa-Rellena-Salchicha-Ranchera.png",
+      "IngreArepa": [
+        "Arepa",
+        "Salchicha"
+      ],
+      "Historia": "Esta deliciosa arepa viene rellena de trozos de salchichas rancheras las cuales hacen un contrase de sabor increible"
     },
     {
       "id": 10,
       "Name": "Arepa sencilla ",
-      "Description": "Deliciosa arepa sencilla",
+      "Description": "Arepa sencilla con mantequilla",
       "Price": "700",
-      "Image": "arepas-app/src/imagenes/Arepa-Sencilla.jpg"
-    }
+      "Image": "/Arepa-Sencilla.jpg",
+      "IngreArepa": [
+        "Arepa",
+        "Mantequilla"
       ],
+      "Historia": "Esta arepa viene acompañada con mantequilla en su parte superior la cual le da un sabor asombroso"
+    }
+  ],
   "usuarios": [
     {
       "id": 1,
@@ -84,37 +138,15 @@
       "PhoneNumber": "12312412"
     },
     {
-      "Email": "q@hotmial.com",
-      "Password": "dasdsa",
-      "FirstName": "xd",
-      "LastName": "xd",
-      "BirthofDate": "2022-11-07",
-      "RegisterDate": "2022-11-08",
-      "Address": "xd",
-      "PhoneNumber": "12312312",
+      "Email": "cristian_gira@hotmail.com",
+      "Password": "123",
+      "FirstName": "cristian",
+      "LastName": "giraldo",
+      "BirthofDate": "2000-10-30",
+      "RegisterDate": "2022-11-24",
+      "Address": "cra 86 # 25-83 torre 2 apto 302",
+      "PhoneNumber": "3132297067",
       "id": 2
-    },
-    {
-      "Email": "",
-      "Password": "",
-      "FirstName": "",
-      "LastName": "",
-      "BirthofDate": "",
-      "RegisterDate": "",
-      "Address": "",
-      "PhoneNumber": "",
-      "id": 3
-    },
-    {
-      "Email": "xd@hotmail.com",
-      "Password": "asdasd",
-      "FirstName": "asdasd",
-      "LastName": "asdasd",
-      "BirthofDate": "2022-11-02",
-      "RegisterDate": "",
-      "Address": "asdasd",
-      "PhoneNumber": "123123",
-      "id": 4
     }
   ],
   "Orders": [
