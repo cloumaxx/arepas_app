@@ -46,18 +46,12 @@ export function Orders() {
 
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        no login
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Datos de envio</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+    
+  <Container className='mt-9'>
+    <h1 className='text-light letrica'>ingresa tus datos para realizar el pedido</h1>
         <Form.Group className="form-group mb-3" controlId="formBasicEmail">
     <p></p>
-      <div className="one-half last">
+      <div className="center">
       <div className='justify-content-start text-light letrica'>
       <h4 className="center">Nombre</h4>
       </div>
@@ -84,21 +78,11 @@ export function Orders() {
       <input placeholder='Su Apellido' type="text" className="form-control-lg" id="exampleFormControlInput1" value={fromData.Notes} onChange={(e) => setFormData({ ...fromData, Notes: e.target.value })} size={25} />
       <p></p>
       </div>
-      
+      <div className="mb-3">
+        <button className='btn btn-success' type="submit" href="/" onClick={handleFormSubmit}>ORDENAR!!!</button>
+      </div>
     </Form.Group>
-
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className='btn btn-success' type="submit" href="./" onClick={handleFormSubmit}>
-            guardar datos 
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+    </Container>
   );
 
 };
-
