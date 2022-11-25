@@ -22,5 +22,8 @@ namespace Arepas.Application.Interfaces
         public Task<Customers> UpdateAsync(int id, Customers entity);
 
         public Task RemoveAsync(int id);
+
+        public Task<IEnumerable<Customers>> Login(LoginDto loginDto);
+
     }
 }

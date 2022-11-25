@@ -9,6 +9,8 @@ namespace Arepas.Domain.Interfaces.Repositories
         public Task<PaginationResult<Customers>> GetByPageAsync(PaginationParams @params);
 
         public Task<IEnumerable<Customers>> SearchAsync(string queryValue);
+        public Task<IEnumerable<Customers>> Login(LoginDto loginDto);
+
 
     }
 }

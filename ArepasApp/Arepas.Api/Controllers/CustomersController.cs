@@ -102,6 +102,15 @@ namespace Arepas.Api.Controllers
                 return NotFound(ex.Message);
             }
         }
+        // Get api/<CustomersController>
+        [HttpGet("Login")]
+        public async Task<IActionResult> Login([FromQuery] LoginDto loginDto)
+        {
+
+            return Ok(await _customerService.Login(loginDto));
+
+
+        }
     }
 
 }

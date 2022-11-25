@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj": {}
+    "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj": {
+    "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj",
         "projectName": "Arepas.Domain",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj",
+        "packagesPath": "C:\\Users\\Carlos Eduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carlos Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -109,8 +109,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -119,21 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj": {
+    "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj",
         "projectName": "Arepas.Infrastructure",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Infrastructure\\Arepas.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Carlos Eduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carlos Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,8 +146,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\ServicesDevelopment-2022-02-caralvmut\\Proyecto\\ArepasApp\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj"
+              "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj": {
+                "projectPath": "C:\\Users\\Carlos Eduardo\\Downloads\\arepas_app-Crigirama\\arepas_app-Crigirama\\ArepasApp\\Arepas.Domain\\Arepas.Domain.csproj"
               }
             }
           }
@@ -232,8 +231,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -242,7 +240,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

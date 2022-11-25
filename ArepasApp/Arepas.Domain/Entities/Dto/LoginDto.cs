@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Arepas.Domain.Entities.Dto
 {
-    internal class LoginDto
+    public class LoginDto
     {
 
         [Required(ErrorMessage = "El Email es requerido")]

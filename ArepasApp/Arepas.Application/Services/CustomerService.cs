@@ -84,5 +84,17 @@ namespace Arepas.Application.Services
             }
             return (await _customerRepository.UpdateAsync(entity));
         }
+
+        public Task<IEnumerable<Customers>> Login(LoginDto loginDto)
+        {
+            var product = _customerRepository.Login(loginDto);
+
+            if (product is null)
+            {
+                throw new NotFoundException($"Customer with  Not Found");
+            }
+
+            return product;
+        }
     }
 }

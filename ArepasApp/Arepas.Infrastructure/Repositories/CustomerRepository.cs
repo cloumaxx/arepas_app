@@ -5,6 +5,7 @@ using Arepas.Infrastructure.Context;
 using Arepas.Domain.Entities.Models;
 using Arepas.Domain.Entities.Dto;
 using Microsoft.EntityFrameworkCore;
+using Arepas.Domain.Exceptions;
 
 namespace Arepas.Infrastructure.Repositories
 {
@@ -47,6 +48,32 @@ namespace Arepas.Infrastructure.Repositories
                 .ToListAsync();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             return customers;
+        }
+
+
+        public async Task<IEnumerable<Customers>> Login(LoginDto loginDto)
+        {
+            var emailLogin = loginDto.Email;
+            var PasswordLogin = loginDto.Password;
+
+            var customer = await _appDbContext.Customers.Where(x => x.Email.Equals(emailLogin) & x.Password.Equals(PasswordLogin)).ToListAsync();
+
+
+
+            if (customer.Count != 0)
+            {
+
+                return await _appDbContext.Customers
+                .Where(x => x.Email.Equals(emailLogin) & x.Password.Equals(PasswordLogin))
+                .ToListAsync();
+
+
+            }
+            else
+            {
+                throw new NotFoundException($" Hubo un error no existe");
+
+            }
         }
     }
 }
